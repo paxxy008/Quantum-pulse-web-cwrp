@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>QUANTUM-PULSE-WEB-CWRP</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--neon:#00ff88;--neon2:#00d9ff;--yellow:#ffe600;--bg:#040a08;--panel:rgba(10,22,18,0.94);--line:rgba(0,255,136,0.22)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;min-height:100vh;font-size:11px;overflow-x:hidden}
+#bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg, rgba(4,10,8,0.15) 0%, rgba(4,10,8,0.96) 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover no-repeat;opacity:0.20}
+#grid{position:fixed;inset:0;z-index:1;opacity:0.035;background-image:linear-gradient(#00ff88 1px, transparent 1px),linear-gradient(90deg, #00ff88 1px, transparent 1px);background-size:32px 32px}
+#top{position:fixed;top:0;left:0;right:0;height:38px;z-index:100;background:rgba(0,0,0,0.94);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 14px;backdrop-filter:blur(12px)}
+#top h1{font-family:'Orbitron',monospace;font-size:11px;letter-spacing:4px;color:var(--neon);font-weight:700;text-shadow:0 0 10px var(--neon)}
+#top h1 span{color:#fff;opacity:0.7}
+#top small{font-size:8px;letter-spacing:2px;opacity:0.4}
+#app{position:relative;z-index:2;display:grid;grid-template-columns:280px 1fr;gap:12px;min-height:100vh;padding:50px 12px 12px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;backdrop-filter:blur(14px);box-shadow:0 4px 24px rgba(0,0,0,0.6)}
+.p-head{padding:12px 14px 10px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:9px;letter-spacing:2.5px;color:var(--neon)}
+.m-item{padding:12px 14px;font-size:10.5px;letter-spacing:1px;color:#8ab79a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-left:2px solid transparent;transition:.18s;border-bottom:1px solid rgba(255,255,255,0.03)}
+.m-item:hover{background:rgba(0,255,136,0.06);color:#fff;padding-left:18px}
+.m-item.active{background:rgba(0,255,136,0.09);color:#fff;border-left-color:var(--neon)}
+.m-sub{display:none;padding:4px 0 8px 0}
+.m-sub.open{display:block}
+.m-sub div{padding:9px 14px 9px 28px;font-size:10px;cursor:pointer;border-left:2px solid transparent;margin:1px 0;transition:.15s;display:flex;justify-content:space-between;align-items:center}
+.m-sub div:hover{padding-left:32px;background:rgba(255,255,255,0.03)}
+.m-sub div.active{color:#fff;background:rgba(0,255,136,0.07)}
+#main{display:flex;flex-direction:column;gap:12px}
+.welcome{padding:20px 18px}
+.welcome h2{font-family:'Orbitron',monospace;font-size:16px;letter-spacing:3px;color:#fff;margin-bottom:6px}
+.welcome h2 b{color:var(--neon)}
+.welcome.sub{font-size:9px;letter-spacing:3px;color:var(--neon);opacity:0.8;margin-bottom:14px}
+.welcome p{font-size:11px;line-height:1.8;color:#a8c9b5;max-width:75ch}
+.welcome p b{color:#e0ffe8}
+.badge-wiltos{display:inline-flex;margin-top:12px;padding:6px 12px;background:linear-gradient(90deg, rgba(0,255,136,0.15), rgba(0,217,255,0.15));border:1px solid var(--neon);border-radius:4px;font-size:8.5px;letter-spacing:2px;color:var(--neon)}
+.hero{position:relative;height:200px;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#000}
+.hero img{width:100%;height:100%;object-fit:cover;opacity:0.6}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(90deg, rgba(4,10,8,0.92) 0%, transparent 60%)}
+.hero-txt{position:absolute;left:18px;bottom:14px}
+.hero-txt h3{font-family:'Orbitron',monospace;font-size:18px;letter-spacing:2px;color:#fff}
+.hero-txt p{font-size:8px;letter-spacing:2px;color:var(--neon2);margin-top:4px}
+.vip-section{padding:14px}
+.vip-section h4{font-size:10px;letter-spacing:2.5px;color:var(--yellow);margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:8px}
+.vip-cat{margin-bottom:18px}
+.vip-cat-title{font-size:9px;letter-spacing:2px;color:var(--neon);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.vip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.v-card{background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:10px;transition:.2s;cursor:pointer}
+.v-card:hover{border-color:var(--neon);box-shadow:0 0 12px rgba(0,255,136,0.15);transform:translateY(-1px)}
+.v-card img{width:100%;height:70px;object-fit:cover;border-radius:4px;opacity:0.8;margin-bottom:8px}
+.v-name{font-size:9.5px;color:#fff;letter-spacing:0.8px}
+.v-price{font-size:8.5px;color:var(--yellow);margin-top:3px}
+@media(max-width:900px){#app{grid-template-columns:1fr}#top h1{font-size:9px;letter-spacing:2px}.welcome h2{font-size:13px}.vip-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="bg"></div><div id="grid"></div>
+<div id="top"><h1>QUANTUM-PULSE-WEB-<span>CWRP</span></h1><small>ALPHA • LATAM • WILTOS ACTIVE</small></div>
+<div id="app">
+<div id="left">
+<div class="panel">
+<div class="p-head">NAVEGACIÓN // QP-CWRP</div>
+<div class="m-item active" onclick="showSection('bienvenida')">SOBRE NOSOTROS <span style="font-size:7px">●</span></div>
+<div class="m-item" onclick="toggleLeg()">LEGIONES <span style="font-size:7px">▶</span></div>
+<div class="m-sub open" id="sub-leg">
+<div onclick="setLeg('501')" id="l-501" class="active" style="color:#3a86ff;border-left-color:#3a86ff"><span>Legión 501st</span><span style="width:7px;height:7px;background:#3a86ff;border-radius:50%;box-shadow:0 0 6px #3a86ff"></span></div>
+<div onclick="setLeg('212')" id="l-212" style="color:#ff9f1c;border-left-color:#ff9f1c"><span>Batallón 212th</span><span style="width:7px;height:7px;background:#ff9f1c;border-radius:50%"></span></div>
+<div onclick="setLeg('shock')" id="l-shock" style="color:#ff2a2a;border-left-color:#ff2a2a"><span>Shock Trooper</span><span style="width:7px;height:7px;background:#ff2a2a;border-radius:50%"></span></div>
+<div onclick="setLeg('88')" id="l-88" style="color:#00e5ff;border-left-color:#00e5ff"><span>88th Artillery Corps</span><span style="width:7px;height:7px;background:#00e5ff;border-radius:50%"></span></div>
+<div onclick="setLeg('327')" id="l-327" style="color:#fff176;border-left-color:#fff176"><span>327th Star Corps</span><span style="width:7px;height:7px;background:#fff176;border-radius:50%"></span></div>
+</div>
+<div class="m-item" onclick="showSection('vips-jedi')">VIPS JEDI <span style="font-size:7px">▶</span></div>
+<div class="m-sub" id="sub-jedi"><div onclick="showSection('vips-jedi')">VIP PLATE JEDI</div><div onclick="showSection('vips-jedi')">VIP GOLD JEDI</div><div onclick="showSection('vips-jedi')">VIP PLATINUM JEDI</div><div onclick="showSection('vips-jedi')">VIP DIAMOND JEDI</div></div>
+<div class="m-item" onclick="showSection('vips-clon')">VIPS CLONES <span style="font-size:7px">▶</span></div>
+<div class="m-sub" id="sub-clon"><div onclick="showSection('vips-clon')">REPUBLIC COMANDO</div><div onclick="showSection('vips-clon')">PERSONAJES ESPECIALES CLON</div></div>
+<div class="m-item" onclick="showSection('vips-cis')">VIPS CIS <span style="font-size:7px">▶</span></div>
+<div class="m-sub" id="sub-cis"><div onclick="showSection('vips-cis')">VIP SEPARATISTAS</div><div onclick="showSection('vips-cis')">VIP CAZARRECOMPENSAS</div><div onclick="showSection('vips-cis')">VIP DROIDES</div></div>
+</div>
+</div>
+<div id="main">
+<div class="panel welcome" id="sec-bienvenida">
+<h2>BIENVENIDO A <b>QUANTUM PULSE</b></h2>
+<div class="sub">SERVIDOR CWRP // LATAM • ALPHA</div>
+<p><b>Quantum Pulse</b> es un servidor CWRP serio con comunidad latina activa. Somos uno de los <b>pocos servidores latinos con Wiltos</b> y armas especiales totalmente funcionales, con sistema de progresión, eventos y lore continuo.<br><br>Contamos con <b>legiones completas</b> (501st, 212th, Shock, 88th, 327th), sistema de VIPS balanceado, staff activo y optimización para que juegues sin lag. Si buscás un servidor donde tu rol importe, este es tu lugar.<br><br><b>Wiltos</b> • Armas Especiales • Misiones Diarias • VIPS Balanceados • Anti-Cheat • Soporte LATAM</p>
+<div class="badge-wiltos">⚡ WILTOS SYSTEM ACTIVE • ARMAS ESPECIALES • LATAM EXCLUSIVE ⚡</div>
+</div>
+<div class="panel hero" id="hero-panel"><img id="h-img" src="https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?w=900&q=80"><div class="hero-ov"></div><div class="hero-txt"><h3 id="h-title">501ST LEGION</h3><p id="h-sub">VADER FIST • AZUL • ASALTO</p></div></div>
+<div class="panel welcome" id="sec-detalle" style="padding:18px"><h2 id="d-title" style="font-size:14px">501ST LEGION // AZUL</h2><div class="sub" id="d-sub">GENERAL: SKYWALKER • CMDR: REX • 9,200 UNID</div><p id="d-text">Legión de élite conocida como el Puño de Vader. 9,200 tropas. Color azul característico.</p></div>
+<div class="panel vip-section" id="sec-vips-jedi" style="display:none"><h4>VIPS JEDI // FUERZA</h4><div class="vip-grid"><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">PLATE JEDI - Padawan</div><div class="v-price">$15.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">GOLD JEDI - Knight</div><div class="v-price">$25.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">PLATINUM JEDI - Master</div><div class="v-price">$40.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">DIAMOND JEDI - Council</div><div class="v-price">$60.000 ARS</div></div></div></div>
+<div class="panel vip-section" id="sec-vips-clon" style="display:none"><h4>VIPS CLONES // ELITE</h4><div class="vip-grid"><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">RC-1138 Boss</div><div class="v-price">$35.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">ARC Trooper - Fives</div><div class="v-price">$30.000 ARS</div></div></div></div>
+<div class="panel vip-section" id="sec-vips-cis" style="display:none"><h4>VIPS CIS // SEPARATISTAS</h4><div class="vip-grid"><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">Count Dooku</div><div class="v-price">$50.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">Jango Fett</div><div class="v-price">$40.000 ARS</div></div><div class="v-card"><img src="https://i.imgur.com/8Km9tLL.png"><div class="v-name">BX Commando</div><div class="v-price">$25.000 ARS</div></div></div></div>
+</div>
+</div>
+</div>
+<script>
+const LEGS={'501':{title:'501ST LEGION',sub:'VADER FIST • AZUL • ASALTO',img:'https://images.unsplash.com/photo-1608346128025-1896b97a6fa7?w=900',det:'Legión de élite conocida como el Puño de Vader. 9,200 tropas. Color azul característico. Especialidad asalto planetario. Skywalker/Rex.'},'212':{title:'212TH ATTACK BATTALION',sub:'GHOST COMPANY • AMARILLO/NARANJA • RECON',img:'https://images.unsplash.com/photo-1578374173707-9696d3565dc1?w=900',det:'Batallón de Ataque 212th. 7,500 tropas. Color amarillo/naranja. Expertos en reconocimiento y asedio. Kenobi/Cody. Base Utapau.'},'shock':{title:'SHOCK TROOPER',sub:'CORUSCANT GUARD • ROJO • SEGURIDAD',img:'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=900',det:'Shock Trooper. 8,200 unidades. Color rojo. Protección del Senado y Templo Jedi.'},'88':{title:'88TH ARTILLERY CORPS',sub:'ARTILLERY • CIAN • SOPORTE PESADO',img:'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=900',det:'88th Artillery Corps. Artillería pesada. Color cian. Soporte pesado y cañones.'},'327':{title:'327TH STAR CORPS',sub:'STAR CORPS • AMARILLO CLARITO • SELVA',img:'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900',det:'327th Star Corps. 6,800 tropas. Color amarillo clarito. Especialistas en selva. Secura/Bly.'}};
+function toggleLeg(){document.getElementById('sub-leg').classList.toggle('open')}
+function setLeg(id){const d=LEGS[id];if(!d)return;document.getElementById('h-img').src=d.img;document.getElementById('h-title').innerText=d.title;document.getElementById('h-sub').innerText=d.sub;document.getElementById('d-title').innerText=d.title+' // AZUL';document.getElementById('d-sub').innerText=d.sub;document.getElementById('d-text').innerText=d.det;document.querySelectorAll('#sub-leg div').forEach(e=>e.classList.remove('active'));document.getElementById('l-'+id).classList.add('active');showSection('detalle')}
+function showSection(id){document.querySelectorAll('.vip-section').forEach(s=>s.style.display='none');document.getElementById('sec-bienvenida').style.display=id==='bienvenida'?'block':'none';document.getElementById('sec-detalle').style.display=id==='bienvenida'||id==='detalle'?'block':'none';document.getElementById('hero-panel').style.display=id.includes('vips')?'none':'block';if(id.includes('vips')){const el=document.getElementById('sec-'+id);if(el)el.style.display='block'}}
+</script>
+</body>
+</html>
