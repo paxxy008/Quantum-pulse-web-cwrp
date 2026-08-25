@@ -25,15 +25,18 @@ body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;
 .m-item.cyan{border-left-color:var(--cyan88);color:var(--cyan88)}.m-item.cyan.active{background:rgba(0,229,255,0.14);color:#fff}
 .m-item.red{border-left-color:var(--red);color:var(--red)}.m-item.red.active{background:rgba(255,42,42,0.14);color:#fff}
 .m-item.gold{border-left-color:var(--gold);color:var(--gold)}.m-item.gold.active{background:rgba(255,204,51,0.14);color:#fff}
-.m-sub{display:none;padding:6px 0;background:rgba(0,0,0,0.32)}
-.m-sub.open{display:block}
+.m-sub{display:none;padding:6px 0;background:rgba(0,0,0,0.32)}.m-sub.open{display:block}
 .m-sub div{padding:10px 14px 10px 28px;font-size:10px;cursor:pointer;border-left:2px solid transparent;margin:1px 0;transition:0.15s;display:flex;justify-content:space-between;align-items:center;color:#7a9a8a}
 .m-sub div:hover{padding-left:32px;background:rgba(255,255,255,0.03);color:#fff}
 .m-sub div.active{color:#fff;background:rgba(0,255,136,0.07);border-left-color:var(--neon)}
-.hero{padding:22px 20px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hero{padding:22px 20px 14px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
 .hero h1{font-family:'Orbitron';font-size:clamp(28px,5vw,48px);letter-spacing:10px;font-weight:900;line-height:0.9;color:#fff;text-shadow:0 0 20px rgba(0,255,136,0.4)}
 .hero h1 b{color:var(--neon);text-shadow:0 0 30px var(--neon)}
 .hero p{margin-top:10px;font-size:9px;letter-spacing:4px;opacity:0.4}
+.cover-wrap{position:relative;width:100%;height:300px;background:#08120e;border-bottom:1px solid rgba(0,255,136,0.15);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.cover-wrap img{width:100%;height:100%;object-fit:cover;opacity:0.9;transition:0.4s}
+.cover-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, transparent 30%, rgba(4,10,8,0.85) 100%)}
+.cover-label{position:absolute;bottom:12px;left:14px;z-index:2;font-family:'Orbitron';font-size:9px;letter-spacing:3px;color:var(--neon);text-shadow:0 0 10px var(--neon);background:rgba(0,0,0,0.6);padding:5px 10px;border:1px solid var(--neon);border-radius:4px}
 .frame-body{padding:18px;display:grid;gap:16px}
 .section{border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:16px;background:rgba(0,0,0,0.35)}
 .section h3{font-family:'Orbitron';font-size:10px;letter-spacing:3px;margin-bottom:10px;color:var(--neon)}
@@ -43,7 +46,8 @@ body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;
 .submenu-btn:hover{border-color:var(--neon);color:#fff;transform:translateY(-1px);box-shadow:0 0 12px rgba(0,255,136,0.15)}
 .submenu-btn.active{border-color:var(--neon);color:#000;background:var(--neon);box-shadow:0 0 18px var(--neon)}
 .submenu-content{display:none;border:1px solid var(--neon);border-radius:10px;padding:16px;background:linear-gradient(180deg, rgba(0,255,136,0.07) 0%, rgba(0,0,0,0.4) 100%);gap:16px}
-.submenu-content.show{display:flex;flex-wrap:wrap}
+.submenu-content.show{display:flex;flex-wrap:wrap;animation:fade 0.25s}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .submenu-img{width:180px;height:180px;border-radius:8px;background:#08120e;border:1px solid rgba(0,255,136,0.2);overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .submenu-img img{width:100%;height:100%;object-fit:cover}
 .submenu-text{flex:1;min-width:220px}
@@ -51,17 +55,17 @@ body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;
 .submenu-text span{font-size:9px;letter-spacing:2px;opacity:0.5;display:block;margin-bottom:10px}
 .submenu-text p{font-size:11.5px;line-height:1.6;opacity:0.85;white-space:pre-line}
 .roster{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-.circle{width:66px;text-align:center;cursor:pointer;transition:0.2s}
+.circle{width:72px;text-align:center;cursor:pointer;transition:0.2s}
 .circle-img{width:58px;height:58px;border-radius:50%;background:#08120e;border:2px solid #1a3a2a;margin:0 auto;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .circle-img img{width:100%;height:100%;object-fit:cover}
-.circle b{font-size:7.5px;letter-spacing:1px;margin-top:5px;display:block;color:#8ab79a}
+.circle b{font-size:7px;letter-spacing:0.8px;margin-top:5px;display:block;color:#8ab79a;line-height:1.1}
 .circle:hover{transform:translateY(-2px)}.circle:hover.circle-img{border-color:var(--neon);box-shadow:0 0 15px var(--neon)}
 #charInfo{display:none;margin-top:14px;padding:14px;border:1px solid var(--neon);border-radius:8px;background:linear-gradient(180deg, rgba(0,255,136,0.07) 0%, rgba(0,0,0,0.4) 100%)}
-#charInfo.show{display:block}
+#charInfo.show{display:block;animation:fade 0.25s}
 #charInfo h4{font-family:'Orbitron';letter-spacing:2px;color:var(--neon);font-size:13px}
 #charInfo.role{font-size:8.5px;letter-spacing:2px;opacity:0.5;margin:5px 0 8px}
 #charInfo.desc{font-size:11.5px;line-height:1.6;opacity:0.85;white-space:pre-line}
-@media(max-width:800px){#app{grid-template-columns:1fr}}
+@media(max-width:800px){#app{grid-template-columns:1fr}.cover-wrap{height:200px}}
 </style>
 </head>
 <body>
@@ -69,25 +73,25 @@ body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;
 <div id="top"><b>QUANTUM PULSE CWRP</b></div>
 <div id="app">
 <div class="panel" id="sidebar">
-<div class="p-head">BATALLONES // SELECCIONA</div>
+<div class="p-head">BATALLONES</div>
 <div class="m-item blue active" data-sound onclick="selectLegion('501')"><span>501ST LEGION</span><span>▶</span></div>
-<div class="m-item orange" data-sound onclick="selectLegion('212')"><span>212TH ATTACK BATTALION</span><span>▶</span></div>
+<div class="m-item orange" data-sound onclick="selectLegion('212')"><span>212TH ATTACK</span><span>▶</span></div>
 <div class="m-item yellow" data-sound onclick="selectLegion('327')"><span>327TH STAR CORPS</span><span>▶</span></div>
-<div class="m-item cyan" data-sound onclick="selectLegion('88')"><span>88TH SIEGE CORPS - KI-ADI</span><span>▶</span></div>
-<div class="m-item red" data-sound onclick="selectLegion('shock')"><span>SHOCK TROOPERS - GUARDIA</span><span>▶</span></div>
-<div class="p-head" style="margin-top:10px">JEDI VIPS // DORADO</div>
-<div class="m-item gold" data-sound onclick="toggleSub('jedi-sub')"><span>JEDI VIPS - PLATE / GOLD / PLAT</span><span>▼</span></div>
+<div class="m-item cyan" data-sound onclick="selectLegion('88')"><span>88TH ARTILLERY CORPS</span><span>▶</span></div>
+<div class="m-item red" data-sound onclick="selectLegion('shock')"><span>SHOCK TROOPER - GUARDIA</span><span>▶</span></div>
+<div class="p-head" style="margin-top:10px">JEDI VIPS - DORADO</div>
+<div class="m-item gold" data-sound onclick="toggleSub('jedi-sub')"><span>JEDI - PLATE/GOLD/PLAT</span><span>▼</span></div>
 <div class="m-sub open" id="jedi-sub">
 <div data-sound onclick="selectLegion('jedi-plate')">PLATE - $15K</div>
 <div data-sound onclick="selectLegion('jedi-gold')">GOLD - $35K</div>
 <div data-sound onclick="selectLegion('jedi-plat')">PLATINUM - $65K</div>
 </div>
 <div class="p-head" style="margin-top:10px">CIS VIPS</div>
-<div class="m-item" style="border-left-color:var(--orange);color:var(--orange)" data-sound onclick="toggleSub('cis-sub')"><span>CIS - BOUNTY / DROID / ICONIC</span><span>▼</span></div>
+<div class="m-item" style="border-left-color:var(--orange);color:var(--orange)" data-sound onclick="toggleSub('cis-sub')"><span>CIS - BOUNTY/DROID/ICONIC</span><span>▼</span></div>
 <div class="m-sub open" id="cis-sub">
-<div data-sound onclick="selectLegion('cis-bounty')">BOUNTY - CAZARRECOMPENSAS</div>
+<div data-sound onclick="selectLegion('cis-bounty')">BOUNTY</div>
 <div data-sound onclick="selectLegion('cis-droid')">DROIDES</div>
-<div data-sound onclick="selectLegion('cis-icon')">PERSONAJES ICÓNICOS</div>
+<div data-sound onclick="selectLegion('cis-icon')">ICÓNICOS</div>
 </div>
 </div>
 <div class="panel" id="main">
@@ -118,96 +122,111 @@ document.addEventListener('click', e=>{
 function toggleSub(id){ document.getElementById(id).classList.toggle('open'); }
 const legions = {
 '501': {
-title:'501ST LEGION', cmd:'CMDR: REX CT-7567 / APPO', jedi:'GENERAL: ANAKIN SKYWALKER / AHSOKA TANO',
-desc:'Legión de asalto élite del 3er Ejército de Sistemas. La más agresiva y letal. Especializada en asalto frontal, guerra urbana y ruptura de líneas.',
+title:'501ST LEGION', cmd:'CMDR: REX / APPO', jedi:'GENERAL: ANAKIN / AHSOKA',
+cover:'./img/portada_501.png',
+desc:'Legión de asalto élite del 3er Ejército. La más agresiva y letal. Asalto frontal, guerra urbana y ruptura de líneas.',
 roles:{
-heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_501.png', role:'Z-6 Rotary / LAAT / AT-TE', desc:'Pilotos LAAT/a y LAAT/c especializados en inserción caliente. Heavy Troopers con Z-6 Rotary Cannon para supresión, artilleros SPHA-T móviles, y escuadrón de pilotos ARC-170 para escolta. En 501st, los Heavy son Torrent Heavy - avanzan primero rompiendo trincheras.\n\n>>> CAMBIA IMAGEN AQUI: img: "./img/heavy_501.png" o link directo <<<'},
-arc:{name:'ARC TROOPERS', img:'./img/arc_501.png', role:'Fives, Echo, Jesse - Élite', desc:'ARC Troopers de élite - misiones encubiertas, infiltración separatista, armamento dual DC-17 y entrenamiento independiente. Operan detrás de líneas enemigas.\n\n>>> CAMBIA IMAGEN AQUI: img: "./img/arc_501.png" <<<'},
-arf:{name:'ARF TROOPERS', img:'./img/arf_501.png', role:'BARC Speeders - Recon', desc:'ARF Troopers (Advanced Recon Force) - BARC Speeders, reconocimiento de alto riesgo, marcar objetivos para bombardeo. En 501st usan BARC con cañón lateral.\n\n>>> CAMBIA IMAGEN AQUI: img: "./img/arf_501.png" <<<'},
-medico:{name:'MÉDICO', img:'./img/med_501.png', role:'Kix - Torrent Company', desc:'Médico de Torrent Company. Bacta avanzado, desfibrilador de campo, extracción bajo fuego. En 501st los médicos avanzan con la vanguardia, no se quedan atrás.\n\n>>> CAMBIA IMAGEN AQUI: img: "./img/med_501.png" <<<'}
+heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_501.png', role:'Z-6 Rotary / LAAT / AT-TE', desc:'Pilotos LAAT/i y AT-TE inserción caliente. Heavy Troopers Z-6 Rotary supresión, artilleros SPHA-T, pilotos ARC-170 escolta. Torrent Heavy avanza primero.\n\n>>> CAMBIA IMAGEN:./img/heavy_501.png <<<'},
+arc:{name:'ARC TROOPERS', img:'./img/arc_501.png', role:'Fives, Echo, Jesse', desc:'ARC élite - misiones encubiertas, infiltración separatista, dual DC-17.\n\n>>> CAMBIA IMAGEN:./img/arc_501.png <<<'},
+arf:{name:'ARF TROOPERS', img:'./img/arf_501.png', role:'BARC Speeders', desc:'ARF Advanced Recon - BARC Speeders, reconocimiento alto riesgo.\n\n>>> CAMBIA IMAGEN:./img/arf_501.png <<<'},
+medico:{name:'MÉDICO', img:'./img/med_501.png', role:'Kix - Torrent', desc:'Médico Torrent. Bacta avanzado, desfibrilador campo, extracción bajo fuego.\n\n>>> CAMBIA IMAGEN:./img/med_501.png <<<'}
 },
 chars:[
-{id:'rex', name:'REX', img:'./img/rex.png', role:'CT-7567 Captain - 501st', desc:'Mano derecha Anakin. Torrent Company. Jaig Eyes. Chip removido.\n\nCWRP: Rango servidor, campañas EDITABLE.'},
-{id:'anakin', name:'ANAKIN', img:'./img/anakin.png', role:'Jedi General - Gold $35K', desc:'General 501st. Djem So agresivo. Chosen One.\n\nCWRP Lore EDITABLE.'},
-{id:'ahsoka', name:'AHSOKA', img:'./img/ahsoka.png', role:'Commander - 332nd', desc:'Padawan Anakin, comandante 332nd.\n\nCWRP Lore EDITABLE.'},
-{id:'fives', name:'FIVES', img:'./img/fives.png', role:'ARC Trooper - Domino', desc:'Descubrió chip inhibitor. Murió por Fox.\n\nCWRP Lore EDITABLE.'},
-{id:'echo', name:'ECHO', img:'./img/echo.png', role:'ARC / Cyborg', desc:'Domino Squad, luego Bad Batch.\n\nCWRP Lore EDITABLE.'}
+{id:'rex', name:'CPT REX', full:'CPT REX - CT-7567', img:'./img/rex.png', role:'501st - Torrent Company', desc:'Mano derecha Anakin. Jaig Eyes. Chip removido. Veterano Christophsis, Teth, Umbara, Mandalore.\n\nCWRP EDITABLE.'},
+{id:'anakin', name:'GRAL ANAKIN', full:'GRAL ANAKIN SKYWALKER', img:'./img/anakin.png', role:'Jedi General - Gold $35K - 501st', desc:'General 501st. Djem So agresivo. Chosen One.\n\nCWRP EDITABLE.'},
+{id:'ahsoka', name:'CMD AHSOKA', full:'CMD AHSOKA TANO', img:'./img/ahsoka.png', role:'Commander - 332nd', desc:'Padawan Anakin, comandante 332nd.\n\nCWRP EDITABLE.'},
+{id:'fives', name:'ARC FIVES', full:'ARC FIVES', img:'./img/fives.png', role:'ARC Trooper - Domino', desc:'Descubrió chip inhibitor. Murió por Fox.\n\nCWRP EDITABLE.'},
+{id:'echo', name:'ARC ECHO', full:'ARC ECHO', img:'./img/echo.png', role:'ARC / Cyborg', desc:'Domino Squad, luego Bad Batch.\n\nCWRP EDITABLE.'}
 ]
 },
 '212': {
-title:'212TH ATTACK BATTALION', cmd:'CMDR: CODY CC-2224', jedi:'GENERAL: OBI-WAN KENOBI',
-desc:'Batallón de asedio expedicionario más equilibrado. Infantería, airborne, reconocimiento y blindados. Soporte directo a 501st.',
+title:'212TH ATTACK BATTALION', cmd:'CMDR: CODY - GHOST COMPANY', jedi:'GENERAL: OBI-WAN KENOBI',
+cover:'./img/portada_212.png',
+desc:'Batallón de asedio expedicionario más equilibrado. Infantería, airborne, reconocimiento y blindados.',
 roles:{
-heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_212.png', role:'2nd Airborne / AT-TE / PLX-1', desc:'2nd Airborne Company - Jetpacks y drop pods. Pilotos AT-TE y LAAT/c cañones masa. Heavy PLX-1 lanzacohetes AT. En 212th, Heavy = soporte a Ghost Company en asedio.\n\n>>> CAMBIA IMAGEN:./img/heavy_212.png <<<'},
-arc:{name:'ARC TROOPERS', img:'./img/arc_212.png', role:'Tácticos - Sabotaje', desc:'ARC Troopers tácticos, coordinación con 501st ARC, sabotaje de baterías anti-aéreas separatistas.\n\n>>> CAMBIA IMAGEN:./img/arc_212.png <<<'},
-arf:{name:'ARF TROOPERS', img:'./img/arf_212.png', role:'212th Recon - AT-RT', desc:'212th Recon Division - AT-RT walkers, exploración tras líneas enemigas, BARC con rifle largo alcance.\n\n>>> CAMBIA IMAGEN:./img/arf_212.png <<<'},
-medico:{name:'MÉDICO', img:'./img/med_212.png', role:'Coric - Ghost Company', desc:'Coric y equipo Ghost - Medivac con LAAT, triage en campo bajo artillería. Extracción rápida.\n\n>>> CAMBIA IMAGEN:./img/med_212.png <<<'}
+heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_212.png', role:'2nd Airborne / AT-TE / PLX-1', desc:'2nd Airborne Company - Jetpacks y drop pods. Pilotos AT-TE y LAAT/c. Heavy PLX-1 lanzacohetes AT. Soporte Ghost Company.\n\n>>> CAMBIA IMAGEN:./img/heavy_212.png <<<'},
+arc:{name:'ARC TROOPERS', img:'./img/arc_212.png', role:'Tácticos', desc:'ARC Tácticos, coordinación con 501st ARC, sabotaje baterías anti-aéreas.\n\n>>> CAMBIA IMAGEN:./img/arc_212.png <<<'},
+arf:{name:'ARF TROOPERS', img:'./img/arf_212.png', role:'212th Recon - AT-RT', desc:'212th Recon - AT-RT walkers, exploración tras líneas.\n\n>>> CAMBIA IMAGEN:./img/arf_212.png <<<'},
+medico:{name:'MÉDICO', img:'./img/med_212.png', role:'Coric - Ghost', desc:'Coric y equipo Ghost - Medivac LAAT, triage bajo artillería.\n\n>>> CAMBIA IMAGEN:./img/med_212.png <<<'}
 },
 chars:[
-{id:'cody', name:'CODY', img:'./img/cody.png', role:'CC-2224 Marshal Commander', desc:'Mejor amigo Obi-Wan. Visor antenna. Maestro asedio.\n\nCWRP Lore EDITABLE.'},
-{id:'kenobi', name:'KENOBI', img:'./img/kenobi.png', role:'High General - Platinum $65K', desc:'Maestro Soresu, Negociador. Alto Consejo. General 212th.\n\nCWRP Lore EDITABLE.'}
+{id:'obiwan', name:'GRAL OBI-WAN', full:'GRAL OBI-WAN KENOBI', img:'./img/kenobi.png', role:'High General - Platinum $65K - 212th', desc:'Maestro Soresu, El Negociador. Alto Consejo. General 212th.\n\nCWRP EDITABLE.'},
+{id:'cody', name:'CMD CODY', full:'CMD CODY - CC-2224', img:'./img/cody.png', role:'Marshal Commander - 212th', desc:'Mejor amigo Obi-Wan. Visor antenna. Maestro asedio. Geonosis, Ryloth, Umbara, Utapau.\n\nCWRP EDITABLE.'},
+{id:'adi', name:'SGT ADI GALLIA', full:'SGT ADI GALLIA', img:'./img/adi.png', role:'Jedi General - Apoyo 212th', desc:'Jedi Council, apoyo 212th en Ryloth.\n\n>>> CAMBIA IMAGEN:./img/adi.png <<<\n\nCWRP EDITABLE.'},
+{id:'barlex', name:'SGT BARLEX', full:'SGT BARLEX', img:'./img/barlex.png', role:'212th - Ghost Company', desc:'Sargento Ghost Company. Asedio.\n\n>>> CAMBIA IMAGEN:./img/barlex.png <<<\n\nCWRP EDITABLE.'},
+{id:'waxer', name:'SDO WAXER', full:'SDO WAXER - Ghost', img:'./img/waxer.png', role:'212th - Ghost Company', desc:'Ryloth, rescate Numa. Leal.\n\nCWRP EDITABLE.'},
+{id:'boil', name:'SDO BOIL', full:'SDO BOIL - Ghost', img:'./img/boil.png', role:'212th - Ghost Company', desc:'Ghost Company, Ryloth.\n\nCWRP EDITABLE.'}
 ]
-},
-'327': {
-title:'327TH STAR CORPS', cmd:'CMDR: BLY CC-5052', jedi:'GENERAL: AAYLA SECURA',
-desc:'Cuerpo estelar de despliegue planetario rápido. Infantería pesada + AT-TE. Expertos en terrenos hostiles: jungla tóxica, pantano.',
+},'327': {
+title:'327TH STAR CORPS', cmd:'CMDR: BLY - STAR CORPS', jedi:'GENERAL: AAYLA SECURA',
+cover:'./img/portada_327.png',
+desc:'Cuerpo estelar de despliegue planetario rápido. Infantería pesada + AT-TE. Expertos jungla tóxica, pantano.',
 roles:{
-heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_327.png', role:'AT-TE heavy / TX-130 / Lanzallamas', desc:'AT-TE heavy y pilotos TX-130 Saber. Heavy con lanzallamas y morteros para limpiar búnkeres Felucia. Pilotos BARC blindaje extra contra flora carnívora.\n\n>>> CAMBIA IMAGEN:./img/heavy_327.png <<<'},
-arc:{name:'ARC TROOPERS', img:'./img/arc_327.png', role:'Jungla - Camuflaje', desc:'ARC de jungla - camuflaje avanzado, rifles francotirador DC-15x, sigilo en vegetación densa.\n\n>>> CAMBIA IMAGEN:./img/arc_327.png <<<'},
-arf:{name:'ARF TROOPERS', img:'./img/arf_327.png', role:'Recon Jungla - Térmico', desc:'Reconocimiento en jungla, BARC con sensores térmicos para detectar fauna hostil.\n\n>>> CAMBIA IMAGEN:./img/arf_327.png <<<'},
-medico:{name:'MÉDICO', img:'./img/med_327.png', role:'Médico Jungla - Antídotos', desc:'Médicos de jungla - antídotos contra venenos Felucianos, bacta en spray, tratamiento fauna.\n\n>>> CAMBIA IMAGEN:./img/med_327.png <<<'}
+heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_327.png', role:'AT-TE heavy / TX-130 / Lanzallamas', desc:'AT-TE heavy y TX-130 Saber. Heavy lanzallamas y morteros limpiar búnkeres Felucia. BARC blindaje extra flora carnívora.\n\n>>> CAMBIA IMAGEN:./img/heavy_327.png <<<'},
+arc:{name:'ARC TROOPERS', img:'./img/arc_327.png', role:'Jungla - Camuflaje', desc:'ARC jungla - camuflaje avanzado, francotirador DC-15x, sigilo vegetación.\n\n>>> CAMBIA IMAGEN:./img/arc_327.png <<<'},
+arf:{name:'ARF TROOPERS', img:'./img/arf_327.png', role:'Recon Jungla', desc:'Reconocimiento jungla, BARC sensores térmicos fauna hostil.\n\n>>> CAMBIA IMAGEN:./img/arf_327.png <<<'},
+medico:{name:'MÉDICO', img:'./img/med_327.png', role:'Médico Jungla', desc:'Médicos jungla - antídotos venenos Felucianos, bacta spray.\n\n>>> CAMBIA IMAGEN:./img/med_327.png <<<'}
 },
 chars:[
-{id:'bly', name:'BLY', img:'./img/bly.png', role:'CC-5052 Commander', desc:'Comandante 327th. Lealtad extrema Aayla hasta Felucia Orden 66.\n\nCWRP Lore EDITABLE.'},
-{id:'aayla', name:'AAYLA', img:'./img/aayla.png', role:'Jedi General - Gold $35K', desc:'Twi\'lek, Ataru, murió Felucia.\n\nCWRP Lore EDITABLE.'}
+{id:'aayla', name:'GRAL AAYLA', full:'GRAL AAYLA SECURA', img:'./img/aayla.png', role:'Jedi General - Gold $35K - 327th', desc:'Twi\'lek, Ataru, murió Felucia por Bly Orden 66.\n\nCWRP EDITABLE.'},
+{id:'bly', name:'CMD BLY', full:'CMD BLY - CC-5052', img:'./img/bly.png', role:'Commander - 327th Star Corps', desc:'Comandante 327th. Lealtad extrema Aayla hasta Felucia Orden 66.\n\nCWRP EDITABLE.'},
+{id:'daviss', name:'CPT DAVISS', full:'CPT DAVISS', img:'./img/daviss.png', role:'Captain - 327th', desc:'Capitán 327th Star Corps. Infantería pesada.\n\n>>> CAMBIA IMAGEN:./img/daviss.png <<<\n\nCWRP EDITABLE.'},
+{id:'gregor', name:'GREGOR', full:'GREGOR - CC-5576-39', img:'./img/gregor.png', role:'Captain - Foxtrot Group - 327th', desc:'Comando de élite, supervivencia extrema Sarrish. Armadura con camuflaje.\n\n>>> CAMBIA IMAGEN:./img/gregor.png <<<\n\nCWRP EDITABLE.'}
 ]
 },
 '88': {
-title:'88TH ARTILLERY CORPS', cmd:'CMDR: ODI / MARINE LEAD', jedi:'GENERAL: KI-ADI-MUNDI [ASIGNADO CWRP]',
-desc:'En tu CWRP asignado a Ki-Adi-Mundi. Cuerpo de asedio pesado + Galactic Marines. Armadura blanca especializada frío extremo, ventisca.',
+title:'88TH ARTILLERY CORPS', cmd:'CMDR: ODI / NYX', jedi:'GENERAL: KI-ADI-MUNDI [ASIGNADO CWRP]',
+cover:'./img/portada_88.png',
+desc:'En tu CWRP - 88th Artillery Corps asignado a Ki-Adi-Mundi. Cuerpo de artillería y asedio pesado + Galactic Marines. Frío extremo, ventisca.',
 roles:{
-heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_88.png', role:'SPHA-T / Morteros / DC-15LE', desc:'Artillería SPHA-T y morteros pesados. Heavy con DC-15LE y cañón rotativo para romper droides pesados. Pilotos AT-TE con cadenas para hielo y AT-OT transporte tropas ventisca. Trajes térmicos.\n\n>>> CAMBIA IMAGEN:./img/heavy_88.png <<<'},
-arc:{name:'ARC TROOPERS', img:'./img/arc_88.png', role:'Marines ARC - Mygeeto', desc:'Marines ARC - asalto a puentes de energía Mygeeto, demolición de generadores, sabotaje en frío extremo.\n\n>>> CAMBIA IMAGEN:./img/arc_88.png <<<'},
-arf:{name:'ARF TROOPERS', img:'./img/arf_88.png', role:'Snow Troopers - Ventisca', desc:'Snow Troopers - reconocimiento en ventisca con BARC modificados para nieve, sensores térmicos.\n\n>>> CAMBIA IMAGEN:./img/arf_88.png <<<'},
-medico:{name:'MÉDICO', img:'./img/med_88.png', role:'Médico Frío - Hipotermia', desc:'Médicos de frío - hipotermia, congelación, refugios térmicos portátiles, tratamiento ventisca.\n\n>>> CAMBIA IMAGEN:./img/med_88.png <<<'}
+heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_88.png', role:'Artillería Pesada / SPHA-T / DC-15LE', desc:'Artillería SPHA-T y morteros pesados. Heavy DC-15LE y cañón rotativo romper droides pesados. Pilotos AT-TE cadenas hielo y AT-OT transporte tropas ventisca. Trajes térmicos.\n\n>>> CAMBIA IMAGEN:./img/heavy_88.png <<<'},
+arc:{name:'ARC TROOPERS', img:'./img/arc_88.png', role:'Marines ARC - Mygeeto', desc:'Marines ARC - asalto puentes energía Mygeeto, demolición generadores, sabotaje frío extremo.\n\n>>> CAMBIA IMAGEN:./img/arc_88.png <<<'},
+arf:{name:'ARF TROOPERS', img:'./img/arf_88.png', role:'Snow Troopers', desc:'Snow Troopers - reconocimiento ventisca BARC modificados nieve.\n\n>>> CAMBIA IMAGEN:./img/arf_88.png <<<'},
+medico:{name:'MÉDICO', img:'./img/med_88.png', role:'Médico Frío - Hipotermia', desc:'Médicos frío - hipotermia, congelación, refugios térmicos portátiles.\n\n>>> CAMBIA IMAGEN:./img/med_88.png <<<'}
 },
 chars:[
-{id:'kiadi', name:'KI-ADI', img:'./img/kiadi.png', role:'Jedi High General - 88th - Gold $35K', desc:'Maestro Cereano, Consejo Jedi, dos corazones, Ataru. Batalla Mygeeto puente energía - muerte canon por Bacara Orden 66. En tu CWRP lore alternativo: sobreviviente/táctico asedio.\n\n>>> EDITA AQUI - Rango batallón, misiones Mygeeto <<<'},
-{id:'odi', name:'ODI', img:'./img/bacara.png', role:'Galactic Marines Commander', desc:'CC-1138, Mygeeto, frío extremo.\n\nCWRP Lore EDITABLE.'}
+{id:'kiadi', name:'GRAL KI-ADI', full:'GRAL KI-ADI-MUNDI', img:'./img/kiadi.png', role:'Jedi High General - 88th Artillery - Gold $35K', desc:'Maestro Cereano, Consejo Jedi, dos corazones, Ataru. Batalla Mygeeto puente energía - muerte canon por Bacara Orden 66. En tu CWRP lore alternativo: sobreviviente/táctico asedio.\n\n>>> EDITA AQUI - Rango batallón, misiones Mygeeto <<<'},
+{id:'odi', name:'CMD ODI', full:'CMD ODI - 88th Artillery', img:'./img/odi.png', role:'Commander - 88th Artillery Corps', desc:'Comandante Odi - Líder 88th Artillery Corps. Especialista artillería pesada y coordinación con Ki-Adi-Mundi.\n\n>>> CAMBIA IMAGEN:./img/odi.png <<<\n\nCWRP EDITABLE.'},
+{id:'nyx', name:'CPT NYX', full:'CPT NYX - 88th Artillery', img:'./img/nyx.png', role:'Captain - 88th Artillery Corps', desc:'Capitán Nyx - Segundo al mando 88th. Experto en SPHA-T y bombardeo de precisión Mygeeto.\n\n>>> CAMBIA IMAGEN:./img/nyx.png <<<\n\nCWRP EDITABLE.'}
 ]
 },
 'shock': {
-title:'SHOCK TROOPERS - GUARDIA DE CORUSCANT', cmd:'CMDR: FOX CC-1010', jedi:'MANDO: SENADO / PALPATINE',
-desc:'Policía militar República. NO frente batalla. Seguridad Senado, Canciller y Coruscant. Jurisdicción arrestar cualquier clon o Jedi.',
+title:'SHOCK TROOPER - GUARDIA DE CORUSCANT', cmd:'CMDR: FOX / THORN / THIRE', jedi:'MANDO: SENADO / PALPATINE',
+cover:'./img/portada_shock.png',
+desc:'Policía militar República. NO frente batalla. Seguridad Senado, Canciller y Coruscant. Jurisdicción arrestar cualquier clon o Jedi en toda la GAR.',
 roles:{
-heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_shock.png', role:'Riot Heavy / LAAT/le / EMP', desc:'Riot Heavy con escudos antidisturbios y bastones eléctricos, lanzadores gas. Pilotos LAAT/le patrulla Coruscant. Heavy granadas EMP desactivar droides en ciudad sin daño colateral.\n\n>>> CAMBIA IMAGEN:./img/heavy_shock.png <<<'},
+heavy:{name:'HEAVY - PILOTOS', img:'./img/heavy_shock.png', role:'Riot Heavy / LAAT/le / EMP', desc:'Riot Heavy escudos antidisturbios y bastones eléctricos, lanzadores gas. Pilotos LAAT/le patrulla Coruscant. Heavy granadas EMP desactivar droides en ciudad sin daño colateral.\n\n>>> CAMBIA IMAGEN:./img/heavy_shock.png <<<'},
 arc:{name:'ARC TROOPERS', img:'./img/arc_shock.png', role:'Shock ARC - Investigación', desc:'Shock ARC - investigación criminal interna, caza desertores (Fives), seguridad Canciller.\n\n>>> CAMBIA IMAGEN:./img/arc_shock.png <<<'},
 arf:{name:'ARF TROOPERS', img:'./img/arf_shock.png', role:'Coruscant Guard BARC', desc:'Coruscant Guard BARC - persecución urbana alta velocidad niveles Coruscant.\n\n>>> CAMBIA IMAGEN:./img/arf_shock.png <<<'},
 medico:{name:'MÉDICO', img:'./img/med_shock.png', role:'Médico Forense', desc:'Médicos forenses - autopsias campo, control multitudes bacta aerosol.\n\n>>> CAMBIA IMAGEN:./img/med_shock.png <<<'}
 },
 chars:[
-{id:'fox', name:'FOX', img:'./img/fox.png', role:'CC-1010 Commander Shock', desc:'Comandante Guardia Coruscant. Frío, leal Canciller.\n\nCWRP: ¿Arresta Jedi? ¿Protocolo Senado? EDITABLE.'},
-{id:'thorn', name:'THORN', img:'./img/thorn.png', role:'Shock Commander', desc:'Muerte Scipio defendiendo Padmé.\n\nCWRP Lore EDITABLE.'}
+{id:'fox', name:'CMD FOX', full:'CMD FOX - CC-1010', img:'./img/fox.png', role:'Commander - Shock Trooper - Guardia Coruscant', desc:'Comandante Guardia Coruscant. Armadura roja sangre visor negro. Frío, leal Canciller, ejecuta sin dudar.\n\nCWRP: ¿Arresta Jedi? ¿Protocolo Senado? EDITABLE.'},
+{id:'thorn', name:'CMD THORN', full:'CMD THORN', img:'./img/thorn.png', role:'Commander - Shock - Riot Division', desc:'Comandante Shock, muerte heroica Scipio defendiendo a Padmé contra Commando Droids.\n\nCWRP EDITABLE.'},
+{id:'thire', name:'CPT THIRE', full:'CPT THIRE', img:'./img/thire.png', role:'Captain - Shock - Senate Escort', desc:'Teniente Shock, escolta Yoda en Rugosa, luego Coruscant.\n\nCWRP EDITABLE.'},
+{id:'hound', name:'SGT HOUND', full:'SGT HOUND', img:'./img/hound.png', role:'Sergeant - Shock - K9 Unit', desc:'Sargento Shock con Massiff Grizzer - unidad K9. Rastreo en Coruscant niveles bajos.\n\n>>> CAMBIA IMAGEN:./img/hound.png <<<\n\nCWRP EDITABLE.'},
+{id:'shaak', name:'GRAL SHAAK-TI', full:'GRAL SHAAK-TI', img:'./img/shaak.png', role:'Jedi High General - Mando Kamino / Shock oversight', desc:'Maestra Togruta, Consejo Jedi. Supervisión entrenamiento clones y jurisdicción sobre Shock Troopers en Kamino y Coruscant.\n\n>>> CAMBIA IMAGEN:./img/shaak.png <<<\n\nCWRP EDITABLE.'}
 ]
 },
-'jedi-plate': {title:'JEDI VIPS - PLATE TIER', cmd:'TIER: PLATE', jedi:'PRECIO: $15.000 CR EDITABLE', roles:null, chars:[
-{id:'luminara', name:'LUMINARA', img:'./img/luminara.png', role:'Jedi General - Plate $15.000 CR', desc:'Mirialan, 41st.\n\n>>> EDITA PRECIO PLATE AQUI $15.000 CR <<<'}]},
-'jedi-gold': {title:'JEDI VIPS - GOLD TIER', cmd:'TIER: GOLD', jedi:'PRECIO: $35.000 CR EDITABLE', roles:null, chars:[
-{id:'anakin_gold', name:'ANAKIN', img:'./img/anakin.png', role:'Jedi General - Gold $35.000 CR - 501st', desc:'General 501st. Chosen One.\n\n>>> EDITA PRECIO GOLD AQUI <<<'},
-{id:'kiadi_gold', name:'KI-ADI', img:'./img/kiadi.png', role:'Jedi General - Gold $35.000 CR - 88th', desc:'Maestro Cereano, 88th Siege.\n\nCWRP Lore EDITABLE.'}
+'jedi-plate': {title:'JEDI VIPS - PLATE TIER', cmd:'TIER: PLATE', jedi:'PRECIO: $15.000 CR EDITABLE', cover:'./img/portada_jedi_plate.png', roles:null, chars:[
+{id:'luminara', name:'LUMINARA', full:'LUMINARA UNDULI', img:'./img/luminara.png', role:'Jedi General - Plate $15.000 CR', desc:'Mirialan, 41st Elite Corps. Soresu.\n\n>>> EDITA PRECIO PLATE AQUI $15.000 CR <<<'}]},
+'jedi-gold': {title:'JEDI VIPS - GOLD TIER', cmd:'TIER: GOLD', jedi:'PRECIO: $35.000 CR EDITABLE', cover:'./img/portada_jedi_gold.png', roles:null, chars:[
+{id:'anakin_gold', name:'GRAL ANAKIN', full:'GRAL ANAKIN SKYWALKER', img:'./img/anakin.png', role:'Jedi General - Gold $35.000 CR - 501st', desc:'General 501st. Chosen One.\n\n>>> EDITA PRECIO GOLD AQUI <<<'},
+{id:'aayla_gold', name:'GRAL AAYLA', full:'GRAL AAYLA SECURA', img:'./img/aayla.png', role:'Jedi General - Gold $35.000 CR - 327th', desc:'Twi\'lek, 327th. Murió Felucia.\n\nCWRP EDITABLE.'},
+{id:'kiadi_gold', name:'GRAL KI-ADI', full:'GRAL KI-ADI-MUNDI', img:'./img/kiadi.png', role:'Jedi General - Gold $35.000 CR - 88th Artillery', desc:'Maestro Cereano, 88th Artillery Corps. Asignado CWRP.\n\nCWRP Lore EDITABLE.'}
 ]},
-'jedi-plat': {title:'JEDI VIPS - PLATINUM TIER', cmd:'TIER: PLATINUM', jedi:'PRECIO: $65.000 CR EDITABLE', roles:null, chars:[
-{id:'kenobi_plat', name:'KENOBI', img:'./img/kenobi.png', role:'High General - Platinum $65.000 CR', desc:'Maestro Soresu, Negociador.\n\n>>> EDITA PRECIO PLATINUM AQUI <<<'}
+'jedi-plat': {title:'JEDI VIPS - PLATINUM TIER', cmd:'TIER: PLATINUM', jedi:'PRECIO: $65.000 CR EDITABLE', cover:'./img/portada_jedi_plat.png', roles:null, chars:[
+{id:'kenobi_plat', name:'GRAL KENOBI', full:'GRAL OBI-WAN KENOBI', img:'./img/kenobi.png', role:'High General - Platinum $65.000 CR - 212th', desc:'Maestro Soresu, Negociador. Alto Consejo.\n\n>>> EDITA PRECIO PLATINUM AQUI <<<'}
 ]},
-'cis-bounty': {title:'CIS VIPS - CAZARRECOMPENSAS', cmd:'CIS: BOUNTY', jedi:'PRECIO: $25.000-30.000 CR', roles:null, chars:[
-{id:'cad', name:'CAD BANE', img:'./img/cad.png', role:'Bounty Hunter - $25.000 CR', desc:'Duros, sombrero, pistolas LL-30.\n\n>>> EDITA PRECIO BOUNTY AQUI <<<'}]},
-'cis-droid': {title:'CIS VIPS - DROIDES', cmd:'CIS: DROIDES', jedi:'PRECIO: $18.000-45.000 CR', roles:null, chars:[
-{id:'grievous', name:'GRIEVOUS', img:'./img/grievous.png', role:'General Grievous - $45.000 CR', desc:'Kaleesh cyborg, 4 sables.\n\n>>> EDITA PRECIO DROID AQUI <<<'}]},
-'cis-icon': {title:'CIS VIPS - PERSONAJES ICÓNICOS', cmd:'CIS: ICONIC', jedi:'PRECIO: $40.000-50.000 CR', roles:null, chars:[
-{id:'dooku', name:'DOOKU', img:'./img/dooku.png', role:'Count Dooku - $50.000 CR', desc:'Darth Tyranus, líder CIS.\n\n>>> EDITA PRECIO ICONIC AQUI <<<'}]}
+'cis-bounty': {title:'CIS - CAZARRECOMPENSAS', cmd:'CIS: BOUNTY', jedi:'PRECIO: $25.000-30.000 CR', cover:'./img/portada_bounty.png', roles:null, chars:[
+{id:'cad', name:'CAD BANE', full:'CAD BANE', img:'./img/cad.png', role:'Bounty Hunter - $25.000 CR', desc:'Duros, sombrero, pistolas LL-30.\n\n>>> EDITA PRECIO BOUNTY AQUI <<<'}]},
+'cis-droid': {title:'CIS - DROIDES', cmd:'CIS: DROIDES', jedi:'PRECIO: $18.000-45.000 CR', cover:'./img/portada_droid.png', roles:null, chars:[
+{id:'grievous', name:'GRIEVOUS', full:'GENERAL GRIEVOUS', img:'./img/grievous.png', role:'General Grievous - $45.000 CR', desc:'Kaleesh cyborg, 4 sables.\n\n>>> EDITA PRECIO DROID AQUI <<<'}]},
+'cis-icon': {title:'CIS - PERSONAJES ICÓNICOS', cmd:'CIS: ICONIC', jedi:'PRECIO: $40.000-50.000 CR', cover:'./img/portada_cis.png', roles:null, chars:[
+{id:'dooku', name:'DOOKU', full:'COUNT DOOKU', img:'./img/dooku.png', role:'Count Dooku - $50.000 CR', desc:'Darth Tyranus, líder CIS.\n\n>>> EDITA PRECIO ICONIC AQUI <<<'}]}
 };
 const allChars = {};
-Object.values(legions).forEach(l=>{ if(l.chars) l.chars.forEach(c=>{ allChars[c.id]=c; })});
+Object.values(legions).forEach(l=>{ if(l.chars) l.chars.forEach(c=>{ allChars[c.id]=c; }); });
 function selectLegion(id){
  document.querySelectorAll('.m-item').forEach(el=>el.classList.remove('active'));
  const btn = document.querySelector(`[onclick="selectLegion('${id}')"]`);
@@ -220,15 +239,14 @@ function selectLegion(id){
  if(l.roles){
    rolesHtml = `
    <div class="section">
-     <h3>SELECCIONA UN ROL // HEAVY - ARC - ARF - MÉDICO - CLICKEABLE</h3>
+     <h3>SELECCIONA UN ROL // HEAVY - PILOTOS / ARC / ARF / MÉDICO - CLICKEABLE</h3>
      <div class="submenu-row">
-       <div class="submenu-btn" data-sound onclick="showRole('${id}','heavy')">HEAVY: PILOTOS Y APOYO</div>
+       <div class="submenu-btn" data-sound onclick="showRole('${id}','heavy')">HEAVY - PILOTOS</div>
        <div class="submenu-btn" data-sound onclick="showRole('${id}','arc')">ARC TROOPERS</div>
        <div class="submenu-btn" data-sound onclick="showRole('${id}','arf')">ARF TROOPERS</div>
        <div class="submenu-btn" data-sound onclick="showRole('${id}','medico')">MÉDICO</div>
      </div>
      <div id="roleBox"></div>
-     <p style="font-size:7px;opacity:0.3;margin-top:8px">// PARA CAMBIAR IMAGEN Y DESCRIPCIÓN DE CADA ROL: edita en legions['${id}'].roles.heavy.img y roles.heavy.desc</p>
    </div>`;
  }
  content.innerHTML = `
@@ -236,20 +254,23 @@ function selectLegion(id){
  <h1 style="font-size:clamp(20px,4vw,28px);letter-spacing:6px">${l.title}</h1>
  <p>${l.cmd} // ${l.jedi}</p>
  </div>
+ <div class="cover-wrap">
+   <img src="${l.cover}" onerror="this.style.display='none'; this.parentElement.innerHTML+='<div style=\\'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0.5\\'><span style=\\'font-family:Orbitron;letter-spacing:4px;font-size:12px\\'>PORTADA ${l.title}</span><small style=\\'font-size:8px;margin-top:6px\\'>${l.cover} - SUBE TU IMAGEN AQUI</small></div>'" alt="Portada ${l.title}">
+   <div class="cover-label">PORTADA: ${l.cover} - MODIFICA AQUI</div>
+ </div>
  <div class="frame-body">
    <div class="section"><h3>TROPAS EN GENERAL - A QUE SE DEDICAN</h3><p>${l.desc||'VIPs del servidor.'}</p></div>
    ${rolesHtml}
    <div class="section">
-     <h3>PERSONAJES ICÓNICOS - CÍRCULO - CLICK PARA EXPANDIR INFO ABAJO</h3>
+     <h3>ICÓNICOS DE LA LEGIÓN - CÍRCULO - CLICK PARA EXPANDIR INFO ABAJO</h3>
      <div class="roster">
-       ${l.chars.map(c=>`<div class="circle" data-sound data-char="${c.id}" onclick="openChar('${c.id}')"><div class="circle-img"><img src="${c.img}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-family:Orbitron;font-weight:900;color:#2a4a3a\\'>${c.name[0]}</span>'" alt="${c.name}"><!-- MODIFICA IMAGEN CIRCULO ${c.name} AQUI --></div><b>${c.name}</b></div>`).join('')}
+       ${l.chars.map(c=>`<div class="circle" data-sound data-char="${c.id}" onclick="openChar('${c.id}')"><div class="circle-img"><img src="${c.img}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'font-family:Orbitron;font-weight:900;color:#2a4a3a\\'>${c.name[0]}</span>'" alt="${c.full}"><!-- MODIFICA IMAGEN CIRCULO ${c.full} AQUI: ${c.img} --></div><b>${c.name}</b></div>`).join('')}
      </div>
      <div id="charInfo"><h4 id="ciName"></h4><div class="role" id="ciRole"></div><div class="desc" id="ciDesc"></div></div>
    </div>
  </div>
  `;
-}
-function showRole(legionId, roleKey){
+}function showRole(legionId, roleKey){
  const l = legions[legionId];
  const r = l.roles[roleKey];
  const box = document.getElementById('roleBox');
@@ -271,7 +292,7 @@ function openChar(id){
  const c = allChars[id];
  if(!c) return;
  const box = document.getElementById('charInfo');
- document.getElementById('ciName').textContent = c.name || id;
+ document.getElementById('ciName').textContent = c.full || c.name || id;
  document.getElementById('ciRole').textContent = c.role || '';
  document.getElementById('ciDesc').textContent = c.desc || '';
  box.classList.add('show');
