@@ -3,386 +3,363 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GAR ARCHIVE CWRP - FINAL CYBERPUNK</title>
+<title>QUANTUM PULSE CWRP - GAR ARCHIVE</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--neon:#00ff88;--bg:#040a08;--panel:rgba(10,22,18,0.96);--line:rgba(0,255,136,0.22);--orange:#ff7a00;--blue:#0080ff;--yellow:#ffe600;--cyan88:#00e5ff;--red:#ff2a2a;--gold:#ffcc00;--plat:#e5e4e2}
+:root{--neon:#00ff88;--bg:#040a08;--panel:rgba(10,22,18,0.96);--line:rgba(0,255,136,0.22);--orange:#ff7a00;--blue:#0080ff;--yellow:#ffe600;--cyan88:#00e5ff;--red:#ff2a2a;--gold:#ffcc33}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:#b8dcc3;font-family:'Share Tech Mono',monospace;min-height:100vh;overflow-x:hidden}
-#bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg, rgba(4,10,8,0.25) 0%, rgba(4,10,8,0.98) 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover no-repeat;opacity:0.2}
-#grid{position:fixed;inset:0;z-index:1;opacity:0.04;background-image:linear-gradient(var(--neon) 1px, transparent 1px),linear-gradient(90deg, var(--neon) 1px, transparent 1px);background-size:32px 32px}
-#top{position:fixed;top:0;left:0;right:0;height:44px;z-index:100;background:rgba(0,0,0,0.96);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 16px;backdrop-filter:blur(12px)}
-#top h1{font-family:'Orbitron',monospace;font-size:12px;letter-spacing:5px;color:var(--neon);font-weight:900;text-shadow:0 0 12px var(--neon)}
-.badge{font-size:8px;letter-spacing:2px;border:1px solid var(--neon);color:var(--neon);padding:5px 12px;box-shadow:0 0 10px var(--neon)}
-.hero{position:relative;z-index:2;padding:64px 20px 10px;text-align:center}
-.hero h2{font-family:'Orbitron',monospace;font-size:clamp(28px,6vw,58px);letter-spacing:10px;color:#fff;font-weight:900}
-.hero h2 b{color:var(--neon);text-shadow:0 0 30px var(--neon)}
-.hero p{margin-top:12px;font-size:10px;letter-spacing:4px;opacity:0.5}
-.grid-bats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:18px;padding:24px;max-width:1550px;margin:0 auto}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;backdrop-filter:blur(14px);transition:0.3s;position:relative}
-.card:hover{transform:translateY(-5px);box-shadow:0 14px 50px rgba(0,255,136,0.12)}
-.card.bar{height:3px;width:100%}
-.card.blue.bar{background:var(--blue);box-shadow:0 0 14px var(--blue)}
-.card.orange.bar{background:var(--orange);box-shadow:0 0 14px var(--orange)}
-.card.yellow.bar{background:var(--yellow);box-shadow:0 0 14px var(--yellow)}
-.card.cyan.bar{background:var(--cyan88);box-shadow:0 0 14px var(--cyan88)}
-.card.red.bar{background:var(--red);box-shadow:0 0 14px var(--red)}
-.card.img-wrap{height:220px;background:#08120e;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(0,255,136,0.1)}
-.card.img-wrap img{width:100%;height:100%;object-fit:cover;opacity:0.88;transition:0.4s}
-.card:hover.img-wrap img{transform:scale(1.06);opacity:1}
-.card.content{padding:18px}
-.card.num{font-size:9px;letter-spacing:3px;font-weight:700;margin-bottom:6px}
-.card.blue.num{color:var(--blue)}.card.orange.num{color:var(--orange)}.card.yellow.num{color:var(--yellow)}.card.cyan.num{color:var(--cyan88)}.card.red.num{color:var(--red)}
-.card h3{font-family:'Orbitron',monospace;font-size:19px;letter-spacing:2px;color:#fff;margin-bottom:8px}
-.tag{font-size:8.5px;padding:4px 8px;border-radius:4px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);margin-right:4px}
+#bg{position:fixed;inset:0;z-index:0;background:radial-gradient(circle at 50% 0%, #0a1e2e 0%, transparent 55%),linear-gradient(180deg, rgba(4,10,8,0.2) 0%, rgba(4,10,8,0.98) 100%),url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80') center/cover no-repeat;opacity:0.18}
+#grid{position:fixed;inset:0;z-index:1;opacity:0.035;background-image:linear-gradient(var(--neon) 1px, transparent 1px),linear-gradient(90deg, var(--neon) 1px, transparent 1px);background-size:32px 32px}
+#top{position:fixed;top:0;left:0;right:0;height:38px;z-index:100;background:rgba(0,0,0,0.94);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 14px;backdrop-filter:blur(12px)}
+#top b{font-family:'Orbitron';font-size:10px;letter-spacing:4px;color:var(--neon);text-shadow:0 0 10px var(--neon)}
+#top span{font-size:8px;letter-spacing:2px;opacity:0.4}
+.hero{position:relative;z-index:2;padding:70px 20px 20px;text-align:center}
+.hero h1{font-family:'Orbitron';font-size:clamp(34px,8vw,78px);letter-spacing:12px;font-weight:900;line-height:0.9;color:#fff;text-shadow:0 0 25px rgba(0,255,136,0.5)}
+.hero h1 i{color:var(--neon);font-style:normal;text-shadow:0 0 35px var(--neon)}
+.hero p{margin-top:14px;font-size:10px;letter-spacing:5px;opacity:0.45}
+.hmenu{position:relative;z-index:2;display:flex;gap:12px;padding:14px 20px;overflow-x:auto;white-space:nowrap;scrollbar-width:none;max-width:1550px;margin:0 auto}
+.hmenu::-webkit-scrollbar{display:none}
+.hitem{min-width:170px;padding:14px 18px;border-radius:10px;background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:0.25s;backdrop-filter:blur(12px);text-align:center;flex-shrink:0}
+.hitem:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+.hitem.active{transform:translateY(-2px);box-shadow:0 0 25px currentColor}
+.hitem b{display:block;font-family:'Orbitron';font-size:12px;letter-spacing:3px;margin-bottom:4px}
+.hitem span{font-size:8px;letter-spacing:2px;opacity:0.6}
+.hitem.blue{color:var(--blue);border-color:var(--blue)}.hitem.blue.active{background:var(--blue);color:#000;box-shadow:0 0 25px var(--blue)}
+.hitem.orange{color:var(--orange);border-color:var(--orange)}.hitem.orange.active{background:var(--orange);color:#000;box-shadow:0 0 25px var(--orange)}
+.hitem.yellow{color:var(--yellow);border-color:var(--yellow)}.hitem.yellow.active{background:var(--yellow);color:#000;box-shadow:0 0 25px var(--yellow)}
+.hitem.cyan{color:var(--cyan88);border-color:var(--cyan88)}.hitem.cyan.active{background:var(--cyan88);color:#000;box-shadow:0 0 25px var(--cyan88)}
+.hitem.red{color:var(--red);border-color:var(--red)}.hitem.red.active{background:var(--red);color:#fff;box-shadow:0 0 25px var(--red)}
+.hitem.gold{color:var(--gold);border-color:var(--gold)}.hitem.gold.active{background:var(--gold);color:#000;box-shadow:0 0 25px var(--gold)}
+#mainFrame{position:relative;z-index:2;max-width:1550px;margin:10px auto 40px;padding:0 20px}
+.frame{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;backdrop-filter:blur(14px);box-shadow:0 8px 40px rgba(0,0,0,0.6);animation:fade 0.35s}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.frame-head{padding:22px 24px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.frame-head h2{font-family:'Orbitron';font-size:22px;letter-spacing:4px;color:#fff}
+.frame-head h2 b{color:var(--neon)}
+.tag{font-size:8.5px;padding:5px 10px;border-radius:5px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08)}
 .tag.cmd{color:var(--neon);border-color:var(--neon)}
-.lore{font-size:11.5px;line-height:1.6;opacity:0.7;margin-top:8px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
-.stat{background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:8px}
-.stat b{display:block;font-size:8px;color:var(--neon);letter-spacing:1px}
-.btn{margin-top:14px;width:100%;padding:12px;background:transparent;letter-spacing:3px;font-size:9.5px;cursor:pointer;border-radius:6px;font-family:'Orbitron',monospace;font-weight:700;text-transform:uppercase;transition:0.25s}
-.btn.blue{border:1px solid var(--blue);color:var(--blue);box-shadow:0 0 10px rgba(0,128,255,0.2)}.btn.blue:hover{background:var(--blue);color:#000;box-shadow:0 0 25px var(--blue)}
-.btn.orange{border:1px solid var(--orange);color:var(--orange)}.btn.orange:hover{background:var(--orange);color:#000;box-shadow:0 0 25px var(--orange)}
-.btn.yellow{border:1px solid var(--yellow);color:var(--yellow)}.btn.yellow:hover{background:var(--yellow);color:#000;box-shadow:0 0 25px var(--yellow)}
-.btn.cyan{border:1px solid var(--cyan88);color:var(--cyan88)}.btn.cyan:hover{background:var(--cyan88);color:#000;box-shadow:0 0 25px var(--cyan88)}
-.btn.red{border:1px solid var(--red);color:var(--red)}.btn.red:hover{background:var(--red);color:#fff;box-shadow:0 0 25px var(--red)}
-.legion-roster{margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,255,136,0.1)}
-.roster-title{font-size:8px;letter-spacing:3px;opacity:0.4;margin-bottom:10px}
-.circles{display:flex;gap:10px;flex-wrap:wrap}
-.circle{width:56px;text-align:center;cursor:pointer;transition:0.2s}
-.circle img{width:48px;height:48px;border-radius:50%;object-fit:cover;background:#08120e;border:2px solid #1a3a2a;transition:0.2s}
-.circle b{display:block;font-size:7.5px;letter-spacing:1px;margin-top:4px;color:#8ab79a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.circle:hover{transform:translateY(-2px)}.circle:hover img{box-shadow:0 0 15px currentColor;transform:scale(1.08)}
-.vip-section{position:relative;z-index:2;max-width:1550px;margin:40px auto;padding:0 24px}
-.vip-section h2{font-family:'Orbitron',monospace;letter-spacing:6px;font-size:22px;color:#fff;margin-bottom:6px}
-.vip-section h2 b{color:var(--neon)}
-.vip-desc{font-size:9px;letter-spacing:3px;opacity:0.4;margin-bottom:20px}
-.accordion{margin-bottom:14px;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;backdrop-filter:blur(10px)}
-.acc-head{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Orbitron',monospace;font-size:12px;letter-spacing:3px;color:#fff;transition:0.2s}
-.acc-head:hover{background:rgba(0,255,136,0.06)}
-.acc-head span.tag-acc{font-size:8px;padding:4px 8px;border-radius:4px;border:1px solid var(--neon);color:var(--neon)}
-.acc-body{display:none;padding:14px 18px 18px;background:rgba(0,0,0,0.3);border-top:1px solid rgba(0,255,136,0.1)}
-.accordion.open.acc-body{display:block}
-.vip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-.vip{background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px;text-align:center;cursor:pointer;transition:0.25s}
-.vip:hover{border-color:var(--neon);transform:translateY(-2px)}
-.vip img{width:74px;height:74px;border-radius:50%;object-fit:cover;background:#08120e;margin-bottom:8px;border:1px solid #1a3a2a}
-.vip h4{font-size:10px;letter-spacing:2px;color:#fff;font-family:'Orbitron'}
-.tier-plate{border-left:3px solid #8a8a8a}.tier-gold{border-left:3px solid var(--gold)}.tier-platinum{border-left:3px solid var(--plat)}
-.tier-bounty{border-left:3px solid var(--orange)}.tier-droid{border-left:3px solid var(--cyan88)}.tier-icon{border-left:3px solid var(--red)}
-#vipModal{position:fixed;inset:0;background:rgba(0,0,0,0.9);backdrop-filter:blur(12px);display:none;z-index:9999;align-items:center;justify-content:center;padding:20px}
-#vipModal.active{display:flex}
-.modal-box{background:linear-gradient(180deg, rgba(14,26,20,0.98) 0%, rgba(8,16,12,0.98) 100%);border:1px solid var(--neon);border-radius:12px;max-width:600px;width:100%;padding:26px;position:relative;box-shadow:0 0 60px rgba(0,255,136,0.22)}
-.modal-box.close{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#fff}
-.modal-box img{width:96px;height:96px;border-radius:50%;object-fit:cover;margin-bottom:14px;border:2px solid var(--neon)}
-.modal-box h3{letter-spacing:3px;color:var(--neon);font-family:'Orbitron',monospace;font-size:16px}
-.modal-box.role{font-size:9px;letter-spacing:2px;opacity:0.5;margin:6px 0 14px}
-.modal-box.desc{font-size:12.5px;line-height:1.7;opacity:0.85;white-space:pre-line}
-.hint{margin-top:18px;background:rgba(0,0,0,0.5);border:1px dashed #244a32;color:#5a7a66;font-size:9px;padding:10px;border-radius:6px;font-family:monospace}
+.frame-body{padding:24px;display:grid;grid-template-columns:1fr;gap:22px}
+.section{border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:18px;background:rgba(0,0,0,0.35)}
+.section h3{font-family:'Orbitron';font-size:11px;letter-spacing:3px;margin-bottom:12px;color:var(--neon);display:flex;align-items:center;gap:8px}
+.section h3 i{width:22px;height:2px;background:var(--neon);display:inline-block;box-shadow:0 0 8px var(--neon)}
+.section p{font-size:12px;line-height:1.7;opacity:0.8}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.subcard{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:14px}
+.subcard b{font-size:10px;letter-spacing:2px;color:#fff;display:block;margin-bottom:6px}
+.subcard span{font-size:11px;opacity:0.7;line-height:1.5}
+.roster{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.circle{width:72px;text-align:center;cursor:pointer;transition:0.2s}
+.circle.imgc{width:62px;height:62px;border-radius:50%;background:#08120e;border:2px solid #1a3a2a;margin:0 auto;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;transition:0.25s}
+.circle.imgc img{width:100%;height:100%;object-fit:cover}
+.circle.imgc.fallback{font-family:'Orbitron';font-size:16px;font-weight:900;color:#2a4a3a}
+.circle b{font-size:8px;letter-spacing:1px;margin-top:6px;display:block;color:#8ab79a}
+.circle:hover{transform:translateY(-3px)}.circle:hover.imgc{border-color:var(--neon);box-shadow:0 0 18px var(--neon);transform:scale(1.05)}
+.circle.active.imgc{border-color:var(--neon);box-shadow:0 0 22px var(--neon)}
+#charInfo{display:none;margin-top:16px;padding:16px;border:1px solid var(--neon);border-radius:10px;background:linear-gradient(180deg, rgba(0,255,136,0.08) 0%, rgba(0,0,0,0.4) 100%);animation:fade 0.25s}
+#charInfo.show{display:block}
+#charInfo h4{font-family:'Orbitron';letter-spacing:3px;color:var(--neon);font-size:14px}
+#charInfo.role{font-size:9px;letter-spacing:2px;opacity:0.5;margin:6px 0 10px}
+#charInfo.desc{font-size:12px;line-height:1.7;opacity:0.85;white-space:pre-line}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.price-card{border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;background:rgba(0,0,0,0.4);transition:0.2s;position:relative;overflow:hidden}
+.price-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.price-card.plate::before{background:#8a8a8a}.price-card.gold::before{background:var(--gold);box-shadow:0 0 10px var(--gold)}.price-card.plat::before{background:#e5e4e2;box-shadow:0 0 12px #e5e4e2}
+.price-card.bounty::before{background:var(--orange)}.price-card.droid::before{background:var(--cyan88)}.price-card.icon::before{background:var(--red)}
+.price-card h4{font-family:'Orbitron';font-size:12px;letter-spacing:2px;color:#fff}
+.price-card.price{font-family:'Orbitron';font-size:20px;margin:10px 0;letter-spacing:2px}
+.price-card.plate.price{color:#aaa}.price-card.gold.price{color:var(--gold)}.price-card.plat.price{color:#fff;text-shadow:0 0 10px #fff}
+.price-card ul{list-style:none;margin-top:10px}
+.price-card li{font-size:11px;padding:4px 0;opacity:0.7;border-bottom:1px solid rgba(255,255,255,0.04)}
+.btn-vip{margin-top:12px;width:100%;padding:10px;border-radius:6px;font-family:'Orbitron';font-size:9px;letter-spacing:2px;cursor:pointer;background:transparent;transition:0.2s}
+.price-card.gold.btn-vip{border:1px solid var(--gold);color:var(--gold)}.price-card.gold.btn-vip:hover{background:var(--gold);color:#000;box-shadow:0 0 20px var(--gold)}
+.price-card.plat.btn-vip{border:1px solid #fff;color:#fff}.price-card.plat.btn-vip:hover{background:#fff;color:#000;box-shadow:0 0 20px #fff}
+.price-card.plate.btn-vip{border:1px solid #888;color:#888}.price-card.plate.btn-vip:hover{background:#888;color:#000}
 </style>
 </head>
 <body>
 <div id="bg"></div><div id="grid"></div>
-<div id="top"><h1>GAR <span>ARCHIVE</span> // CWRP CYBERPUNK</h1><div class="badge">● SONIDO CYBERPUNK ACTIVO</div></div>
+<div id="top"><b>QUANTUM PULSE CWRP // GAR ARCHIVE</b><span>● CYBERPUNK SYSTEM ACTIVE</span></div>
 <div class="hero">
-<h2>BATALLONES <b>REPÚBLICA</b></h2>
-<p>GRAN EJÉRCITO // 501ST AZUL | 212TH NARANJA | 327TH AMARILLO | 88TH CIAN | SHOCK ROJO | NEGRO+VERDE NEON BASE</p>
+<h1>QUANTUM <i>PULSE</i> CWRP</h1>
+<p>GRAN EJÉRCITO DE LA REPÚBLICA - 22-19 BBY - CONFIGURACIÓN CWRP OFICIAL</p>
 </div>
-<div class="grid-bats">
-
-<div class="card blue">
-<div class="bar"></div>
-<div class="img-wrap"><img src="https://i.imgur.com/8Km9tLL.png" alt="501st"><!-- MODIFICA IMAGEN 501ST AQUI --></div>
-<div class="content">
-<div class="num">LEGION 501 // VADER'S FIST</div>
-<h3>501ª LEGIÓN</h3>
-<div class="meta"><span class="tag cmd">CMDR: REX CT-7567</span><span class="tag">GEN: ANAKIN</span><span class="tag" style="color:#0080ff;border-color:#0080ff">AZUL NEON</span></div>
-<div class="lore">Legión de asalto élite. La más letal y desobediente. Guerra urbana, infiltración. Christophsis, Teth, Umbara con 212th, Mandalore. Torrent Company, 332nd. Doctrina: Velocidad y agresión.</div>
-<div class="stats"><div class="stat"><b>ESPECIALIDAD</b><span>Asalto / CQB</span></div><div class="stat"><b>ARMAMENTO</b><span>DC-15A, Z-6, DC-17 Dual</span></div></div>
-<button class="btn blue" data-sound onclick="openVip('rex')">► DOSSIER VIP [501ST AZUL]</button>
-<div class="legion-roster">
-<div class="roster-title">PERSONAJES ICÓNICOS 501ST // CLICK PARA DOSSIER</div>
-<div class="circles">
-<div class="circle" data-sound onclick="openVip('rex')"><img src="https://i.imgur.com/8Km9tLL.png" alt="Rex"><!-- MODIFICA IMAGEN CIRCULO REX AQUI --><b>REX</b></div>
-<div class="circle" data-sound onclick="openVip('anakin')"><img src="https://i.imgur.com/Anakin.png" alt="Anakin"><!-- MODIFICA IMAGEN ANAKIN --><b>ANAKIN</b></div>
-<div class="circle" data-sound onclick="openVip('ahsoka')"><img src="https://i.imgur.com/Ahsoka.png" alt="Ahsoka"><!-- MODIFICA IMAGEN AHSOKA --><b>AHSOKA</b></div>
-<div class="circle" data-sound onclick="openVip('fives')"><img src="https://i.imgur.com/Fives.png" alt="Fives"><!-- MODIFICA IMAGEN FIVES --><b>FIVES</b></div>
-<div class="circle" data-sound onclick="openVip('echo')"><img src="https://i.imgur.com/Echo.png" alt="Echo"><!-- MODIFICA IMAGEN ECHO --><b>ECHO</b></div>
-<div class="circle" data-sound onclick="openVip('jesse')"><img src="https://i.imgur.com/Jesse.png" alt="Jesse"><!-- MODIFICA IMAGEN JESSE --><b>JESSE</b></div>
+<div class="hmenu" id="hmenu">
+<div class="hitem blue active" data-sound data-id="501" onclick="selectLegion('501')"><b>501ST LEGION</b><span>VADER'S FIST - AZUL NEON</span></div>
+<div class="hitem orange" data-sound data-id="212" onclick="selectLegion('212')"><b>212TH ATTACK</b><span>GHOST COMPANY - NARANJA</span></div>
+<div class="hitem yellow" data-sound data-id="327" onclick="selectLegion('327')"><b>327TH STAR CORPS</b><span>STAR CORPS - AMARILLO</span></div>
+<div class="hitem cyan" data-sound data-id="88" onclick="selectLegion('88')"><b>88TH SIEGE</b><span>KI-ADI-MUNDI - CIAN</span></div>
+<div class="hitem red" data-sound data-id="shock" onclick="selectLegion('shock')"><b>SHOCK TROOPERS</b><span>GUARDIA CORUSCANT - ROJO</span></div>
+<div class="hitem gold" data-sound data-id="jedi" onclick="selectLegion('jedi')"><b>JEDI VIPs</b><span>PLATE / GOLD / PLATINUM - DORADO</span></div>
+<div class="hitem gold" data-sound data-id="cis" onclick="selectLegion('cis')" style="border-color:#ff2a2a;color:#ff7a00"><b>CIS VIPs</b><span>BOUNTY / DROIDE / ICÓNICO</span></div>
 </div>
-</div>
-</div>
-</div>
-
-<div class="card orange">
-<div class="bar"></div>
-<div class="img-wrap"><img src="https://i.imgur.com/Ql2Q1x8.png" alt="212th"><!-- MODIFICA IMAGEN 212TH --></div>
-<div class="content">
-<div class="num">BATALLON 212 // 7TH SKY CORPS</div>
-<h3>212º BATALLÓN DE ATAQUE</h3>
-<div class="meta"><span class="tag cmd">CMDR: CODY CC-2224</span><span class="tag">GEN: OBI-WAN</span><span class="tag" style="color:#ff7a00;border-color:#ff7a00">NARANJA NEON</span></div>
-<div class="lore">Unidad asedio expedicionaria más equilibrada. Infantería, Airborne, Recon, Blindados. Ryloth, Geonosis 2, Umbara capital siege, Utapau. Ghost Company, 2nd Airborne, 212th Recon AT-RT.</div>
-<div class="stats"><div class="stat"><b>ESPECIALIDAD</b><span>Asedio / Airborne</span></div><div class="stat"><b>VEHÍCULOS</b><span>AT-TE, LAAT/i, AT-RT</span></div></div>
-<button class="btn orange" data-sound onclick="openVip('cody')">► DOSSIER VIP [212TH NARANJA]</button>
-<div class="legion-roster">
-<div class="roster-title">PERSONAJES ICÓNICOS 212TH</div>
-<div class="circles">
-<div class="circle" data-sound onclick="openVip('cody')"><img src="https://i.imgur.com/Ql2Q1x8.png" alt="Cody"><b>CODY</b></div>
-<div class="circle" data-sound onclick="openVip('kenobi')"><img src="https://i.imgur.com/ObiWan.png" alt="Obi-Wan"><b>KENOBI</b></div>
-<div class="circle" data-sound onclick="openVip('waxer')"><img src="https://i.imgur.com/Waxer.png" alt="Waxer"><b>WAXER</b></div>
-<div class="circle" data-sound onclick="openVip('boil')"><img src="https://i.imgur.com/Boil.png" alt="Boil"><b>BOIL</b></div>
-</div>
-</div>
-</div>
-</div><div class="card yellow">
-<div class="bar"></div>
-<div class="img-wrap"><img src="https://i.imgur.com/6yH5ZqA.png" alt="327th"><!-- MODIFICA IMAGEN 327TH --></div>
-<div class="content">
-<div class="num">CUERPO 327 // STAR CORPS</div>
-<h3>327º CUERPO ESTELAR</h3>
-<div class="meta"><span class="tag cmd">CMDR: BLY CC-5052</span><span class="tag">GEN: AAYLA SECURA</span><span class="tag" style="color:#ffe600;border-color:#ffe600">AMARILLO NEON</span></div>
-<div class="lore">Despliegue planetario rápido. Infantería pesada + AT-TE. Expertos selva/pantano. Quell, Maridun, Felucia Orden 66, Saleucami. Marca amarilla visor. Barrido planetario.</div>
-<div class="stats"><div class="stat"><b>ESPECIALIDAD</b><span>Jungla / Pesado</span></div><div class="stat"><b>ENTORNO</b><span>Felucia</span></div></div>
-<button class="btn yellow" data-sound onclick="openVip('bly')">► DOSSIER VIP [327TH AMARILLO]</button>
-<div class="legion-roster">
-<div class="roster-title">PERSONAJES ICÓNICOS 327TH</div>
-<div class="circles">
-<div class="circle" data-sound onclick="openVip('bly')"><img src="https://i.imgur.com/6yH5ZqA.png" alt="Bly"><b>BLY</b></div>
-<div class="circle" data-sound onclick="openVip('aayla')"><img src="https://i.imgur.com/Aayla.png" alt="Aayla"><b>AAYLA</b></div>
-<div class="circle" data-sound onclick="openVip('deviss')"><img src="https://i.imgur.com/Deviss.png" alt="Deviss"><b>DEVISS</b></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card cyan">
-<div class="bar"></div>
-<div class="img-wrap"><img src="https://i.imgur.com/2n8tYpL.png" alt="88th Siege"><!-- MODIFICA IMAGEN 88TH AQUI --></div>
-<div class="content">
-<div class="num">CUERPO 88 // SIEGE CORPS // GALACTIC MARINES</div>
-<h3>88TH SIEGE CORPS [KI-ADI-MUNDI]</h3>
-<div class="meta"><span class="tag cmd">CMDR: MARINE LEAD</span><span class="tag">GEN: KI-ADI-MUNDI [CWRP]</span><span class="tag" style="color:#00e5ff;border-color:#00e5ff">CIAN NEON</span></div>
-<div class="lore">En tu CWRP asignado a Ki-Adi-Mundi. Asedio pesado + Galactic Marines. Armadura blanca con detalles morados/cian, frío extremo. Mygeeto puente energía, Cato Neimoidia. Romper fortificaciones.</div>
-<div class="stats"><div class="stat"><b>ESPECIALIDAD</b><span>Asedio / Frío extremo</span></div><div class="stat"><b>ARMAMENTO</b><span>DC-15LE, Morteros</span></div></div>
-<button class="btn cyan" data-sound onclick="openVip('kiadi')">► DOSSIER VIP [88TH CIAN]</button>
-<div class="legion-roster">
-<div class="roster-title">PERSONAJES ICÓNICOS 88TH</div>
-<div class="circles">
-<div class="circle" data-sound onclick="openVip('kiadi')"><img src="https://i.imgur.com/2n8tYpL.png" alt="Ki-Adi"><b>KI-ADI</b></div>
-<div class="circle" data-sound onclick="openVip('bacara')"><img src="https://i.imgur.com/Bacara.png" alt="Bacara"><b>BACARA</b></div>
-<div class="circle" data-sound onclick="openVip('marine')"><img src="https://i.imgur.com/Marine.png" alt="Marine"><b>MARINE</b></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="card red">
-<div class="bar"></div>
-<div class="img-wrap"><img src="https://i.imgur.com/9q4a1vD.png" alt="Coruscant Guard"><!-- MODIFICA IMAGEN SHOCK --></div>
-<div class="content">
-<div class="num">GUARDIA DE CORUSCANT // SHOCK TROOPERS</div>
-<h3>SHOCK TROOPERS</h3>
-<div class="meta"><span class="tag cmd">CMDR: FOX CC-1010 / THORN</span><span class="tag">MANDO: SENADO</span><span class="tag" style="color:#ff2a2a;border-color:#ff2a2a">ROJO NEON</span></div>
-<div class="lore">Policía militar República. NO frente, es seguridad interna. Senado, Canciller, Coruscant, arrestos en toda la GAR. Disturbios, arresto Ahsoka, caza Fives, Templo Jedi Orden 66. Riot Division, Senate Escort.</div>
-<div class="stats"><div class="stat"><b>ESPECIALIDAD</b><span>MP / Seguridad</span></div><div class="stat"><b>LEALTAD</b><span>Canciller</span></div></div>
-<button class="btn red" data-sound onclick="openVip('fox')">► DOSSIER VIP [SHOCK ROJO]</button>
-<div class="legion-roster">
-<div class="roster-title">PERSONAJES ICÓNICOS SHOCK</div>
-<div class="circles">
-<div class="circle" data-sound onclick="openVip('fox')"><img src="https://i.imgur.com/9q4a1vD.png" alt="Fox"><b>FOX</b></div>
-<div class="circle" data-sound onclick="openVip('thorn')"><img src="https://i.imgur.com/Thorn.png" alt="Thorn"><b>THORN</b></div>
-<div class="circle" data-sound onclick="openVip('thire')"><img src="https://i.imgur.com/Thire.png" alt="Thire"><b>THIRE</b></div>
-<div class="circle" data-sound onclick="openVip('palpatine')"><img src="https://i.imgur.com/Palpatine.png" alt="Palpatine"><b>PALPATINE</b></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="vip-section">
-<h2>VIPs <b>// SISTEMA DESPLEGABLE</b></h2>
-<div class="vip-desc">CLICK EN CATEGORÍA PARA DESPLEGAR // JEDI PLATE/GOLD/PLATINUM + CIS BOUNTY/DROID/ICONIC</div>
-
-<div class="accordion" id="acc-jedi-plate">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-jedi-plate')"><span>▶ JEDI VIP - PLATE TIER</span><span class="tag-acc">PLATE - BÁSICO - VERDE</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-plate" data-sound onclick="openVip('jedi_plate_1')"><img src="https://i.imgur.com/Jedi1.png" alt="Jedi Plate"><h4>LUMINARA UNDULI</h4><span>PLATE - 41st</span></div>
-<div class="vip tier-plate" data-sound onclick="openVip('jedi_plate_2')"><img src="https://i.imgur.com/Jedi2.png" alt="Jedi Plate"><h4>BARRISS OFFEE</h4><span>PLATE - Padawan</span></div>
-<div class="vip tier-plate" data-sound onclick="openVip('jedi_plate_3')"><img src="https://i.imgur.com/Jedi3.png" alt="Jedi Plate"><h4>ADI GALLIA</h4><span>PLATE - Council</span></div>
-</div>
-</div>
-</div>
-
-<div class="accordion" id="acc-jedi-gold">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-jedi-gold')"><span>▶ JEDI VIP - GOLD TIER</span><span class="tag-acc" style="color:#ffcc00;border-color:#ffcc00">GOLD - ÉLITE - DORADO</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-gold" data-sound onclick="openVip('anakin')"><img src="https://i.imgur.com/Anakin.png"><h4>ANAKIN SKYWALKER</h4><span>GOLD - 501st General</span></div>
-<div class="vip tier-gold" data-sound onclick="openVip('aayla')"><img src="https://i.imgur.com/Aayla.png"><h4>AAYLA SECURA</h4><span>GOLD - 327th General</span></div>
-<div class="vip tier-gold" data-sound onclick="openVip('kiadi')"><img src="https://i.imgur.com/2n8tYpL.png"><h4>KI-ADI-MUNDI</h4><span>GOLD - 88th General - CWRP</span></div>
-<div class="vip tier-gold" data-sound onclick="openVip('plo')"><img src="https://i.imgur.com/Plo.png"><h4>PLO KOON</h4><span>GOLD - Council</span></div>
-</div>
-</div>
-</div>
-
-<div class="accordion" id="acc-jedi-plat">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-jedi-plat')"><span>▶ JEDI VIP - PLATINUM TIER</span><span class="tag-acc" style="color:#e5e4e2;border-color:#e5e4e2">PLATINUM - LEYENDA</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-platinum" data-sound onclick="openVip('kenobi')"><img src="https://i.imgur.com/ObiWan.png"><h4>OBI-WAN KENOBI</h4><span>PLATINUM - The Negotiator</span></div>
-<div class="vip tier-platinum" data-sound onclick="openVip('yoda')"><img src="https://i.imgur.com/Yoda.png"><h4>YODA</h4><span>PLATINUM - Grand Master</span></div>
-<div class="vip tier-platinum" data-sound onclick="openVip('mace')"><img src="https://i.imgur.com/Mace.png"><h4>MACE WINDU</h4><span>PLATINUM - Council Master</span></div>
-</div>
-</div>
-</div>
-
-<div class="accordion" id="acc-cis-bounty">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-cis-bounty')"><span>▶ VIP CIS - CAZARRECOMPENSAS</span><span class="tag-acc" style="color:#ff7a00;border-color:#ff7a00">BOUNTY - NARANJA</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-bounty" data-sound onclick="openVip('cad')"><img src="https://i.imgur.com/Cad.png"><h4>CAD BANE</h4><span>BOUNTY - Duros</span></div>
-<div class="vip tier-bounty" data-sound onclick="openVip('jango')"><img src="https://i.imgur.com/Jango.png"><h4>JANGO FETT</h4><span>BOUNTY - Prime</span></div>
-<div class="vip tier-bounty" data-sound onclick="openVip('boba')"><img src="https://i.imgur.com/Boba.png"><h4>BOBA FETT</h4><span>BOUNTY - Unaltered</span></div>
-<div class="vip tier-bounty" data-sound onclick="openVip('aurra')"><img src="https://i.imgur.com/Aurra.png"><h4>AURRA SING</h4><span>BOUNTY - Sniper</span></div>
-</div>
-</div>
-</div>
-
-<div class="accordion" id="acc-cis-droid">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-cis-droid')"><span>▶ VIP CIS - DROIDES</span><span class="tag-acc" style="color:#00e5ff;border-color:#00e5ff">DROIDS - CIAN</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-droid" data-sound onclick="openVip('grievous')"><img src="https://i.imgur.com/Grievous.png"><h4>GENERAL GRIEVOUS</h4><span>DROID - Supreme Commander</span></div>
-<div class="vip tier-droid" data-sound onclick="openVip('tactical')"><img src="https://i.imgur.com/Tactical.png"><h4>TACTICAL DROID</h4><span>DROID - Strategist</span></div>
-<div class="vip tier-droid" data-sound onclick="openVip('commando')"><img src="https://i.imgur.com/Commando.png"><h4>COMMANDO DROID</h4><span>DROID - BX Series</span></div>
-</div>
-</div>
-</div>
-
-<div class="accordion" id="acc-cis-icon">
-<div class="acc-head" data-sound onclick="toggleAcc('acc-cis-icon')"><span>▶ VIP CIS - PERSONAJES ICÓNICOS</span><span class="tag-acc" style="color:#ff2a2a;border-color:#ff2a2a">ICONIC - ROJO</span></div>
-<div class="acc-body">
-<div class="vip-grid">
-<div class="vip tier-icon" data-sound onclick="openVip('dooku')"><img src="https://i.imgur.com/Dooku.png"><h4>COUNT DOOKU</h4><span>ICONIC - Sith Lord</span></div>
-<div class="vip tier-icon" data-sound onclick="openVip('ventress')"><img src="https://i.imgur.com/Ventress.png"><h4>ASAAJ VENTRESS</h4><span>ICONIC - Assassin</span></div>
-<div class="vip tier-icon" data-sound onclick="openVip('maul')"><img src="https://i.imgur.com/Maul.png"><h4>DARTH MAUL</h4><span>ICONIC - Sith</span></div>
-<div class="vip tier-icon" data-sound onclick="openVip('gunray')"><img src="https://i.imgur.com/Gunray.png"><h4>NUTE GUNRAY</h4><span>ICONIC - Viceroy</span></div>
-</div>
-</div>
-</div><div id="vipModal" onclick="if(event.target===this)closeVip()">
-<div class="modal-box">
-<div class="close" data-sound onclick="closeVip()">✕</div>
-<img id="mImg" src="">
-<h3 id="mName">NOMBRE</h3>
-<div class="role" id="mRole">ROL</div>
-<div class="desc" id="mDesc">...</div>
-<div class="hint">>>> EDITA VIPs ABAJO en const vips = { } >>> img: "URL" y desc: `tu texto` <<<</div>
-</div>
-</div>
-
+<div id="mainFrame"></div>
 <script>
 let audioCtx;
 function initAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
-function playCyberSound(type='click', color='green'){
- initAudio();
- const now = audioCtx.currentTime;
- const osc = audioCtx.createOscillator();
- const osc2 = audioCtx.createOscillator();
- const gain = audioCtx.createGain();
- const filter = audioCtx.createBiquadFilter();
- filter.type='bandpass'; filter.frequency.value = color==='red'?1800:color==='blue'?2800:color==='orange'?2200:color==='yellow'?3200:color==='cyan'?3500:color==='gold'?3000:color==='plat'?4000:2500;
- filter.Q.value=9; osc.type='sawtooth'; osc2.type='sine';
- if(type==='click'){
-   osc.frequency.setValueAtTime(color==='red'?700:color==='blue'?900:color==='yellow'?1000:800, now);
-   osc.frequency.exponentialRampToValueAtTime(1300, now+0.09);
-   osc2.frequency.setValueAtTime(1200, now); osc2.frequency.exponentialRampToValueAtTime(2800, now+0.14);
-   gain.gain.setValueAtTime(0, now); gain.gain.linearRampToValueAtTime(0.28, now+0.012); gain.gain.exponentialRampToValueAtTime(0.001, now+0.32);
- } else {
-   osc.frequency.setValueAtTime(500, now); osc.frequency.exponentialRampToValueAtTime(80, now+0.2);
-   gain.gain.setValueAtTime(0.22, now); gain.gain.exponentialRampToValueAtTime(0.001, now+0.35);
- }
- osc.connect(filter); osc2.connect(filter); filter.connect(gain); gain.connect(audioCtx.destination);
- osc.start(now); osc2.start(now); osc.stop(now+0.35); osc2.stop(now+0.35);
- const bufferSize = audioCtx.sampleRate * 0.06;
- const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
- const data = buffer.getChannelData(0);
- for(let i=0;i<bufferSize;i++){ data[i]=(Math.random()*2-1)*Math.pow(1-i/bufferSize,2)*0.18; }
- const noise = audioCtx.createBufferSource(); noise.buffer=buffer;
- const nGain = audioCtx.createGain(); nGain.gain.setValueAtTime(0.18, now); nGain.gain.exponentialRampToValueAtTime(0.001, now+0.09);
- noise.connect(nGain); nGain.connect(audioCtx.destination); noise.start(now);
+function playSound(col='green'){
+ initAudio(); const now=audioCtx.currentTime;
+ const o=audioCtx.createOscillator(), o2=audioCtx.createOscillator(), g=audioCtx.createGain(), f=audioCtx.createBiquadFilter();
+ f.type='bandpass'; f.frequency.value= col==='blue'?2800:col==='orange'?2200:col==='yellow'?3200:col==='cyan'?3500:col==='red'?1800:col==='gold'?3000:2500; f.Q.value=9;
+ o.type='sawtooth'; o2.type='sine';
+ o.frequency.setValueAtTime(col==='red'?700:col==='blue'?900:800, now); o.frequency.exponentialRampToValueAtTime(1300, now+0.09);
+ o2.frequency.setValueAtTime(1200, now); o2.frequency.exponentialRampToValueAtTime(2600, now+0.14);
+ g.gain.setValueAtTime(0, now); g.gain.linearRampToValueAtTime(0.26, now+0.01); g.gain.exponentialRampToValueAtTime(0.001, now+0.3);
+ o.connect(f); o2.connect(f); f.connect(g); g.connect(audioCtx.destination); o.start(now); o2.start(now); o.stop(now+0.32); o2.stop(now+0.32);
 }
-document.addEventListener('click', (e)=>{
- const btn = e.target.closest('.btn') || e.target.closest('.vip') || e.target.closest('.circle') || e.target.closest('[data-sound]') || e.target.closest('.acc-head');
- if(btn){
-   let col='green';
-   if(btn.classList.contains('blue')||btn.innerHTML.includes('501')||btn.innerHTML.includes('REX')) col='blue';
-   if(btn.classList.contains('orange')||btn.innerHTML.includes('212')||btn.innerHTML.includes('CODY')||btn.innerHTML.includes('BOUNTY')) col='orange';
-   if(btn.classList.contains('yellow')||btn.innerHTML.includes('327')||btn.innerHTML.includes('BLY')||btn.innerHTML.includes('GOLD')) col='yellow';
-   if(btn.classList.contains('cyan')||btn.innerHTML.includes('88TH')||btn.innerHTML.includes('KI-ADI')||btn.innerHTML.includes('DROID')) col='cyan';
-   if(btn.classList.contains('red')||btn.innerHTML.includes('SHOCK')||btn.innerHTML.includes('FOX')||btn.innerHTML.includes('ICONIC')) col='red';
-   if(btn.innerHTML.includes('PLATINUM')) col='plat';
-   playCyberSound('click', col);
-   if(navigator.vibrate) navigator.vibrate(col==='red'?[20,10,20]:15);
- }
+document.addEventListener('click', e=>{
+ const b=e.target.closest('[data-sound]');
+ if(b){ let c='green'; if(b.classList.contains('blue'))c='blue'; if(b.classList.contains('orange'))c='orange'; if(b.classList.contains('yellow'))c='yellow'; if(b.classList.contains('cyan'))c='cyan'; if(b.classList.contains('red'))c='red'; if(b.classList.contains('gold'))c='gold'; playSound(c); if(navigator.vibrate) navigator.vibrate(12); }
 });
-function toggleAcc(id){ document.getElementById(id).classList.toggle('open'); }
-const vips = {
-rex: { name: "CT-7567 - CAPTAIN REX // 501ST AZUL", role: "501st Legion - Torrent Company", img: "https://i.imgur.com/8Km9tLL.png", desc: `>>> EDITA AQUI - REX - CIRCULO 501ST <<<\nVeterano 501st. Mano derecha Anakin.\n\nCWRP Lore:\n- Rango servidor:\n- Campañas:\nChip removido.` },
-anakin: { name: "ANAKIN SKYWALKER // 501ST GOLD", role: "Jedi General - Gold Tier", img: "https://i.imgur.com/Anakin.png", desc: `>>> EDITA AQUI - ANAKIN - GOLD <<<\nGeneral 501st.\n\nCWRP Lore: [Pon texto]` },
-ahsoka: { name: "AHSOKA TANO // 501ST", role: "501st - Commander - 332nd", img: "https://i.imgur.com/Ahsoka.png", desc: `>>> EDITA AQUI - AHSOKA - CIRCULO 501ST <<<\nComandante 501st/332nd.\n\nCWRP Lore: [Rellena]` },
-fives: { name: "CT-27-5555 - FIVES // 501ST", role: "501st - ARC Trooper", img: "https://i.imgur.com/Fives.png", desc: `>>> EDITA AQUI - FIVES <<<\nARC Trooper, descubrió chip.\n\nCWRP Lore: [Rellena]` },
-echo: { name: "CT-1409 - ECHO // 501ST", role: "501st - ARC / Cyborg", img: "https://i.imgur.com/Echo.png", desc: `>>> EDITA AQUI - ECHO <<<\nDomino Squad, Bad Batch.\n\nCWRP Lore: [Rellena]` },
-jesse: { name: "CT-5597 - JESSE // 501ST", role: "501st - Torrent", img: "https://i.imgur.com/Jesse.png", desc: `>>> EDITA AQUI - JESSE <<<\nTorrent.\n\nCWRP Lore: [Rellena]` },
-cody: { name: "CC-2224 - CODY // 212TH NARANJA", role: "212th Attack Battalion", img: "https://i.imgur.com/Ql2Q1x8.png", desc: `>>> EDITA AQUI - CODY <<<\nMejor amigo Obi-Wan. Visor naranja.\n\nCWRP Lore: [Pon texto]` },
-kenobi: { name: "OBI-WAN KENOBI // 212TH PLATINUM", role: "High General - 212th - Platinum", img: "https://i.imgur.com/ObiWan.png", desc: `>>> EDITA AQUI - KENOBI - PLATINUM <<<\nMaestro Soresu.\n\nCWRP Lore: Maestro servidor.` },
-waxer: { name: "WAXER // 212TH", role: "212th - Ghost Company", img: "https://i.imgur.com/Waxer.png", desc: `>>> EDITA AQUI - WAXER <<<\nGhost Company, Ryloth.` },
-boil: { name: "BOIL // 212TH", role: "212th - Ghost Company", img: "https://i.imgur.com/Boil.png", desc: `>>> EDITA AQUI - BOIL <<<\nGhost Company.` },
-bly: { name: "CC-5052 - BLY // 327TH AMARILLO", role: "327th Star Corps", img: "https://i.imgur.com/6yH5ZqA.png", desc: `>>> EDITA AQUI - BLY <<<\nComandante 327th. Lealtad Aayla. Felucia.` },
-aayla: { name: "AAYLA SECURA // 327TH GOLD", role: "Jedi General - 327th - Gold", img: "https://i.imgur.com/Aayla.png", desc: `>>> EDITA AQUI - AAYLA - GOLD <<<\nGeneral 327th, Twi'lek.\n\nCWRP Lore: [Rellena]` },
-kiadi: { name: "KI-ADI-MUNDI // 88TH CIAN - GOLD", role: "88th Siege Corps - Jedi Council - Gold Tier", img: "https://i.imgur.com/2n8tYpL.png", desc: `>>> EDITA AQUI - KI-ADI-MUNDI - 88TH CIAN <<<\nMaestro Cereano, Consejo Jedi. Asignado a tu 88th Siege Corps.\n\nMygeeto: batalla clave puente energía, muerte canon por Bacara Orden 66. En tu CWRP lore alternativo: sobreviviente/táctico asedio.\n\n88th:\n- Galactic Marines (blanco/cian, frío extremo)\n- Asedio pesado, Mygeeto\n- AT-TE pesados\n\nCWRP Lore:\n- Rango batallón:\n- Misiones Mygeeto:` },
-bacara: { name: "CC-1138 - BACARA // 88TH", role: "88th - Galactic Marines", img: "https://i.imgur.com/Bacara.png", desc: `>>> EDITA AQUI - BACARA <<<\nComandante Marines Galácticos, Mygeeto.` },
-marine: { name: "GALACTIC MARINE // 88TH", role: "88th Siege Corps - Marine", img: "https://i.imgur.com/Marine.png", desc: `>>> EDITA AQUI - MARINE <<<\nMarine tropa, frío extremo.` },
-fox: { name: "CC-1010 - FOX // SHOCK ROJO", role: "Coruscant Guard - Commander", img: "https://i.imgur.com/9q4a1vD.png", desc: `>>> EDITA AQUI - FOX - SHOCK ROJO <<<\nComandante Guardia Coruscant. Armadura roja sangre. MP de toda la GAR.` },
-thorn: { name: "THORN // SHOCK", role: "Coruscant Guard", img: "https://i.imgur.com/Thorn.png", desc: `>>> EDITA AQUI - THORN <<<\nShock Trooper, muerte Scipio.` },
-thire: { name: "THIRE // SHOCK", role: "Coruscant Guard", img: "https://i.imgur.com/Thire.png", desc: `>>> EDITA AQUI - THIRE <<<\nShock, escolta Yoda.` },
-palpatine: { name: "PALPATINE // SHOCK - ICONIC", role: "Canciller - Darth Sidious", img: "https://i.imgur.com/Palpatine.png", desc: `>>> EDITA AQUI - PALPATINE <<<\nCanciller, Lord Sith.` },
-jedi_plate_1: { name: "LUMINARA UNDULI // JEDI PLATE", role: "Jedi General - Plate Tier", img: "https://i.imgur.com/Jedi1.png", desc: `>>> EDITA AQUI - JEDI PLATE - LUMINARA <<<\nMaestra Mirialan.` },
-jedi_plate_2: { name: "BARRISS OFFEE // JEDI PLATE", role: "Jedi Padawan - Plate", img: "https://i.imgur.com/Jedi2.png", desc: `>>> EDITA AQUI - JEDI PLATE - BARRISS <<<\nPadawan.` },
-plo: { name: "PLO KOON // JEDI GOLD", role: "Jedi Council - Gold", img: "https://i.imgur.com/Plo.png", desc: `>>> EDITA AQUI - PLO KOON - GOLD <<<\nMaestro Kel Dor.` },
-yoda: { name: "YODA // JEDI PLATINUM", role: "Grand Master - Platinum", img: "https://i.imgur.com/Yoda.png", desc: `>>> EDITA AQUI - YODA - PLATINUM <<<\nGran Maestro Jedi.` },
-mace: { name: "MACE WINDU // JEDI PLATINUM", role: "Council Master - Platinum", img: "https://i.imgur.com/Mace.png", desc: `>>> EDITA AQUI - MACE - PLATINUM <<<\nMaestro Vaapad.` },
-cad: { name: "CAD BANE // CIS BOUNTY", role: "Bounty Hunter - CIS", img: "https://i.imgur.com/Cad.png", desc: `>>> EDITA AQUI - CAD BANE - CIS BOUNTY <<<\nCazarrecompensas Duros.` },
-jango: { name: "JANGO FETT // CIS BOUNTY", role: "Bounty Hunter - Prime Clone", img: "https://i.imgur.com/Jango.png", desc: `>>> EDITA AQUI - JANGO <<<\nTemplate clones.` },
-boba: { name: "BOBA FETT // CIS BOUNTY", role: "Bounty Hunter - Unaltered", img: "https://i.imgur.com/Boba.png", desc: `>>> EDITA AQUI - BOBA <<<\nHijo Jango.` },
-aurra: { name: "AURRA SING // CIS BOUNTY", role: "Bounty Hunter - Sniper", img: "https://i.imgur.com/Aurra.png", desc: `>>> EDITA AQUI - AURRA SING <<<\nFrancotiradora.` },
-grievous: { name: "GENERAL GRIEVOUS // CIS DROID", role: "CIS - Supreme Commander", img: "https://i.imgur.com/Grievous.png", desc: `>>> EDITA AQUI - GRIEVOUS - CIS DROID <<<\nGeneral droide, cazador Jedi.` },
-tactical: { name: "TACTICAL DROID // CIS DROID", role: "CIS - Strategist", img: "https://i.imgur.com/Tactical.png", desc: `>>> EDITA AQUI - TACTICAL DROID <<<\nDroide táctico.` },
-commando: { name: "BX COMMANDO DROID // CIS DROID", role: "CIS - Commando Droid", img: "https://i.imgur.com/Commando.png", desc: `>>> EDITA AQUI - COMMANDO DROID <<<\nBX.` },
-dooku: { name: "COUNT DOOKU // CIS ICONIC - ROJO", role: "Sith Lord - CIS Leader", img: "https://i.imgur.com/Dooku.png", desc: `>>> EDITA AQUI - DOOKU - CIS ICONIC <<<\nConde Dooku, líder CIS.` },
-ventress: { name: "ASAAJ VENTRESS // CIS ICONIC", role: "CIS - Dark Assassin", img: "https://i.imgur.com/Ventress.png", desc: `>>> EDITA AQUI - VENTRESS <<<\nAsesina Sith.` },
-maul: { name: "DARTH MAUL // CIS ICONIC", role: "Sith - Shadow Collective", img: "https://i.imgur.com/Maul.png", desc: `>>> EDITA AQUI - MAUL <<<\nSith, Mandalore.` },
-gunray: { name: "NUTE GUNRAY // CIS ICONIC", role: "Viceroy - Trade Federation", img: "https://i.imgur.com/Gunray.png", desc: `>>> EDITA AQUI - GUNRAY <<<\nVirrey Federación.` }
-};
-function openVip(id){
- const v = vips[id]||vips.rex;
- document.getElementById('mImg').src=v.img;
- document.getElementById('mName').textContent=v.name;
- document.getElementById('mRole').textContent=v.role;
- document.getElementById('mDesc').innerText=v.desc;
- document.getElementById('vipModal').classList.add('active');
- let col='green';
- if(id.includes('rex')||id.includes('anakin')||id.includes('ahsoka')) col='blue';
- if(id.includes('cody')||id.includes('cad')||id.includes('jango')||id.includes('boba')) col='orange';
- if(id.includes('bly')||id.includes('aayla')||id.includes('plo')) col='yellow';
- if(id.includes('kiadi')||id.includes('bacara')||id.includes('grievous')) col='cyan';
- if(id.includes('fox')||id.includes('dooku')||id.includes('maul')||id.includes('ventress')) col='red';
- if(id.includes('plat')||id.includes('kenobi')||id.includes('yoda')||id.includes('mace')) col='plat';
- if(id.includes('gold')) col='yellow';
- playCyberSound('click', col);
+const legions = {
+'501': {
+title: '501ª LEGIÓN - VADER\'S FIST',
+color: 'blue',
+cmd: 'CMDR: REX CT-7567 / APPO',
+jedi: 'GEN: ANAKIN SKYWALKER / AHSOKA TANO',
+desc: 'Legión de asalto élite del 3er Ejército de Sistemas. La más agresiva, letal y con mayor tasa de desobediencia táctica exitosa. Especializada en asalto frontal, guerra urbana y ruptura de líneas.',
+tropas: 'Tropas en general: Infantería de choque. Entrenados para CQB (combate cerrado), abordaje de naves, infiltración. Usan marcaje azul Fase II, hombreras y visores personalizados. Disciplina agresiva.',
+heavy: 'HEAVY / PILOTOS / APOYO PESADO: Pilotos LAAT/i y AT-TE especializados en inserción caliente. Heavy Troopers con Z-6 Rotary Cannon para supresión, artilleros SPHA-T móviles, y escuadrón de pilotos ARC-170 para escolta. En 501st, los Heavy son Torrent Heavy - avanzan primero.',
+arc: 'ARC: ARC Troopers de élite (Fives, Echo, Jesse) - misiones encubiertas, infiltración separatista, armamento dual DC-17 y entrenamiento independiente.',
+arf: 'ARF: ARF Troopers (Advanced Recon Force) - BARC Speeders, reconocimiento de alto riesgo, marcar objetivos para bombardeo. En 501st usan BARC con cañón lateral.',
+med: 'MÉDICO: Kix - Médico de Torrent Company. Bacta avanzado, desfibrilador de campo, extracción bajo fuego. En 501st los médicos avanzan con la vanguardia.',
+chars: [
+{id:'rex', name:'REX', letter:'R', img:'https://i.imgur.com/8Km9tLL.png', role:'CT-7567 - Captain - 501st', desc:'Mano derecha de Anakin. Torrent Company. Jaig Eyes. Líder táctico. Chip Orden 66 removido. Veterano Christophsis, Teth, Umbara, Mandalore.\n\nCWRP: Rango, campañas, cita. EDITABLE AQUI.'},
+{id:'anakin', name:'ANAKIN', letter:'A', img:'https://i.imgur.com/Anakin.png', role:'Jedi General - Gold Tier', desc:'General 501st. Djem So agresivo. Piloto. The Chosen One.\n\nCWRP Lore: EDITABLE.'},
+{id:'ahsoka', name:'AHSOKA', letter:'A', img:'https://i.imgur.com/Ahsoka.png', role:'Commander - 332nd Company', desc:'Padawan de Anakin, comandante 332nd. Dual saber verde.\n\nCWRP: EDITABLE.'},
+{id:'fives', name:'FIVES', letter:'F', img:'https://i.imgur.com/Fives.png', role:'ARC Trooper - Domino', desc:'Descubrió chip inhibitor. Murió por Fox (Shock). ARC.\n\nCWRP: EDITABLE.'},
+{id:'echo', name:'ECHO', letter:'E', img:'https://i.imgur.com/Echo.png', role:'ARC / Cyborg', desc:'Domino Squad, luego Bad Batch, implante cibernético.\n\nCWRP: EDITABLE.'},
+{id:'jesse', name:'JESSE', letter:'J', img:'https://i.imgur.com/Jesse.png', role:'Torrent Company', desc:'Marcaje República en frente de casco.\n\nCWRP: EDITABLE.'}
+]
+},
+'212': {
+title: '212º BATALLÓN DE ATAQUE - AIR-BORNE',
+color: 'orange',
+cmd: 'CMDR: CODY CC-2224',
+jedi: 'GEN: OBI-WAN KENOBI',
+desc: 'Batallón de asedio expedicionario más equilibrado de la GAR. Parte del 7º Cuerpo Aéreo. Combina infantería, airborne, reconocimiento y blindados. Soporte directo a 501st.',
+tropas: 'Tropas en general: Soldados de asedio y maniobra. Especialistas en tomar capitales (Umbara) y liberación planetaria (Ryloth). Uso intensivo de AT-RT y BARC para flanqueo. Armadura naranja con visor y antenna.',
+heavy: 'HEAVY / PILOTOS / APOYO PESADO: 2nd Airborne Company - Jetpacks y drop pods. Pilotos AT-TE y LAAT/c con cañones de masa. Heavy con PLX-1 lanzacohetes para AT. En 212th, Heavy = soporte a Ghost Company en asedio.',
+arc: 'ARC: ARC Troopers tácticos, coordinación con 501st ARC, sabotaje de baterías anti-aéreas.',
+arf: 'ARF: 212th Recon Division - AT-RT walkers, exploración tras líneas enemigas, BARC con rifle de largo alcance.',
+med: 'MÉDICO: Coric y equipo Ghost - Medivac con LAAT, triage en campo bajo artillería.',
+chars: [
+{id:'cody', name:'CODY', letter:'C', img:'https://i.imgur.com/Ql2Q1x8.png', role:'CC-2224 - Marshal Commander', desc:'Mejor amigo de Obi-Wan. Visor y antenna. Maestro asedio. Geonosis, Ryloth, Umbara, Utapau.\n\nCWRP: EDITABLE.'},
+{id:'kenobi', name:'KENOBI', letter:'O', img:'https://i.imgur.com/ObiWan.png', role:'High General - Platinum', desc:'Maestro Soresu, El Negociador. Alto Consejo. General 212th.\n\nCWRP: EDITABLE.'},
+{id:'waxer', name:'WAXER', letter:'W', img:'https://i.imgur.com/Waxer.png', role:'Ghost Company', desc:'Ryloth, rescate Numa.\n\nCWRP: EDITABLE.'},
+{id:'boil', name:'BOIL', letter:'B', img:'https://i.imgur.com/Boil.png', role:'Ghost Company', desc:'Ghost Company, Ryloth.\n\nCWRP: EDITABLE.'}
+]
+},
+'327': {
+title: '327º CUERPO ESTELAR - STAR CORPS',
+color: 'yellow',
+cmd: 'CMDR: BLY CC-5052',
+jedi: 'GEN: AAYLA SECURA',
+desc: 'Cuerpo estelar de despliegue planetario rápido. Infantería pesada + AT-TE. Expertos en terrenos hostiles: jungla tóxica, pantano, selva. Marca amarilla en visor y hombreras.',
+tropas: 'Tropas en general: Star Corps Troopers. Supervivencia extrema, camuflaje, guerra de desgaste en jungla. Equipados con escopetas de plasma para corta distancia en vegetación densa.',
+heavy: 'HEAVY / PILOTOS / APOYO PESADO: AT-TE heavy y pilotos TX-130 Saber. Heavy con lanzallamas y morteros para limpiar búnkeres en Felucia. Pilotos BARC con blindaje extra contra flora carnívora.',
+arc: 'ARC: ARC de jungla - camuflaje avanzado, rifles de francotirador DC-15x, sigilo.',
+arf: 'ARF: Reconocimiento en jungla, BARC con sensores térmicos para detectar fauna hostil.',
+med: 'MÉDICO: Médicos de jungla - antídotos contra venenos Felucianos, bacta en spray.',
+chars: [
+{id:'bly', name:'BLY', letter:'B', img:'https://i.imgur.com/6yH5ZqA.png', role:'CC-5052 - Commander', desc:'Comandante 327th. Lealtad extrema a Aayla hasta Felucia Orden 66.\n\nCWRP: EDITABLE.'},
+{id:'aayla', name:'AAYLA', letter:'A', img:'https://i.imgur.com/Aayla.png', role:'Jedi General - Gold', desc:'Twi\'lek, Ataru, murió Felucia.\n\nCWRP: EDITABLE.'}
+]
+},e'88': {
+title: '88TH SIEGE CORPS - GALACTIC MARINES [KI-ADI-MUNDI CWRP]',
+color: 'cyan',
+cmd: 'CMDR: BACARA CC-1138 / MARINE LEAD',
+jedi: 'GEN: KI-ADI-MUNDI (ASIGNADO CWRP)',
+desc: 'En tu CWRP asignado a Ki-Adi-Mundi. Cuerpo de asedio pesado + Galactic Marines. Armadura blanca especializada frío extremo, ventisca, visor morado/cian. Romper fortificaciones separatistas.',
+tropas: 'Tropas en general: Galactic Marines. Entrenados para Mygeeto y Cato Neimoidia. Resistencia a temperaturas -50°C, armadura sellada, filtros. Avance lento implacable bajo fuego de artillería.',
+heavy: 'HEAVY / PILOTOS / APOYO PESADO: Artillería SPHA-T y morteros pesados. Heavy con DC-15LE y cañón rotativo para romper droides pesados. Pilotos AT-TE con cadenas para hielo y AT-OT transporte de tropas en ventisca. Pilotos con trajes térmicos.',
+arc: 'ARC: Marines ARC - asalto a puentes de energía Mygeeto, demolición de generadores.',
+arf: 'ARF: Snow Troopers - reconocimiento en ventisca con BARC modificados para nieve.',
+med: 'MÉDICO: Médicos de frío - hipotermia, congelación, refugios térmicos portátiles.',
+chars: [
+{id:'kiadi', name:'KI-ADI', letter:'K', img:'https://i.imgur.com/2n8tYpL.png', role:'Jedi High General - 88th - Gold Tier - Mygeeto', desc:'Maestro Cereano, Consejo Jedi, dos corazones, Ataru. Batalla Mygeeto puente energía - muerte canon por Bacara Orden 66. En tu CWRP lore alternativo: sobreviviente / táctico asedio.\n\nCWRP: EDITABLE AQUI - Rango batallón, misiones Mygeeto, frase.'},
+{id:'bacara', name:'BACARA', letter:'B', img:'https://i.imgur.com/Bacara.png', role:'Galactic Marines Commander', desc:'CC-1138, Mygeeto, frío extremo, visor.\n\nCWRP: EDITABLE.'}
+]
+},
+'shock': {
+title: 'GUARDIA DE CORUSCANT - SHOCK TROOPERS',
+color: 'red',
+cmd: 'CMDR: FOX CC-1010 / THORN / THIRE',
+jedi: 'MANDO: SENADO / CANCILLER PALPATINE',
+desc: 'Policía militar de la República. NO es frente de batalla. Seguridad del Senado, Canciller y Coruscant. Jurisdicción para arrestar a cualquier clon o Jedi en toda la GAR.',
+tropas: 'Tropas en general: Shock Troopers. Armadura roja sangre con visor negro. Control de disturbios, escolta VIP, ejecución de protocolos internos. Entrenados en CQB urbano y antimotines.',
+heavy: 'HEAVY / PILOTOS / APOYO PESADO: Riot Heavy con escudos antidisturbios y bastones eléctricos, lanzadores de gas. Pilotos LAAT/le patrulla Coruscant. Heavy con granadas EMP para desactivar droides en ciudad sin daño colateral.',
+arc: 'ARC: Shock ARC - investigación criminal interna, caza de desertores (Fives), seguridad del Canciller.',
+arf: 'ARF: Coruscant Guard BARC - persecución urbana alta velocidad en niveles de Coruscant.',
+med: 'MÉDICO: Médicos forenses - autopsias de campo, control de multitudes con bacta en aerosol.',
+chars: [
+{id:'fox', name:'FOX', letter:'F', img:'https://i.imgur.com/9q4a1vD.png', role:'CC-1010 - Commander Shock', desc:'Comandante Guardia Coruscant. Frío, leal al Canciller, ejecuta sin dudar.\n\nCWRP: ¿Arresta Jedi? ¿Protocolo Senado? EDITABLE.'},
+{id:'thorn', name:'THORN', letter:'T', img:'https://i.imgur.com/Thorn.png', role:'Shock Commander', desc:'Muerte Scipio defendiendo a Padmé.\n\nCWRP: EDITABLE.'},
+{id:'thire', name:'THIRE', letter:'T', img:'https://i.imgur.com/Thire.png', role:'Shock Lieutenant', desc:'Escolta Yoda en Rugosa.\n\nCWRP: EDITABLE.'}
+]
+},
+'jedi': {
+title: 'JEDI VIPs - SISTEMA DE TIERS Y PRECIOS',
+color: 'gold',
+cmd: 'TIERS: PLATE / GOLD / PLATINUM',
+jedi: 'SISTEMA DORADO - JEDI COUNCIL',
+desc: 'Sistema de VIPs Jedi dividido por poder y precio. Plate = Jedi básicos, Gold = Generales de batallón, Platinum = Leyendas del Consejo. Cada tier desbloquea habilidades y acceso en CWRP.',
+tropas: 'PLATE: Jedi Padawans y Generales menores. Acceso a sable básico, curación ligera. Ideal para iniciar.',
+heavy: 'GOLD: Jedi Generales de batallón (Anakin 501st, Aayla 327th, Ki-Adi 88th, Plo Koon). Acceso a habilidades de liderazgo de legión, Battle Meditation parcial, desbloqueo de tropas élite.',
+arc: 'PLATINUM: Maestros del Alto Consejo (Obi-Wan, Yoda, Mace Windu). Acceso total, habilidades legendarias, poder de Orden de Alto Consejo, desbloqueo de misiones finales.',
+chars: []
+},
+'cis': {
+title: 'CIS VIPs - SEPARATISTAS',
+color: 'red',
+cmd: 'DIVISIÓN: BOUNTY / DROIDES / ICÓNICOS',
+jedi: 'CIS - CONFEDERACIÓN DE SISTEMAS INDEPENDIENTES',
+desc: 'VIPs enemigos. Divididos en 3 categorías: Cazarrecompensas (naranja), Droides de élite (cian), Personajes Icónicos Sith/Separatistas (rojo).',
+tropas: 'Sistema de contratación CIS. Cada categoría tiene habilidades y precios distintos.',
+chars: []
 }
-function closeVip(){ document.getElementById('vipModal').classList.remove('active'); playCyberSound('close','green'); }
+};
+let selectedChar = null;
+function selectLegion(id){
+ document.querySelectorAll('.hitem').forEach(el=>el.classList.remove('active'));
+ document.querySelector(`[data-id="${id}"]`).classList.add('active');
+ const l = legions[id];
+ let color = l.color;
+ playSound(color);
+ renderFrame(id);
+}
+function renderFrame(id){
+ const l = legions[id];
+ const main = document.getElementById('mainFrame');
+ if(id==='jedi'){
+   main.innerHTML = `
+   <div class="frame">
+     <div class="frame-head" style="border-left:4px solid var(--gold)"><h2>${l.title}</h2><div class="meta"><span class="tag cmd">${l.cmd}</span><span class="tag">${l.jedi}</span></div></div>
+     <div class="frame-body">
+       <div class="section"><h3><i style="background:var(--gold)"></i>TROPAS EN GENERAL - JEDI</h3><p>${l.desc}</p></div>
+       <div class="grid-3">
+         <div class="subcard"><b>PLATE TIER</b><span>${l.tropas}</span></div>
+         <div class="subcard"><b>GOLD TIER</b><span>${l.heavy}</span></div>
+         <div class="subcard"><b>PLATINUM TIER</b><span>${l.arc}</span></div>
+       </div>
+       <div class="section">
+         <h3><i style="background:var(--gold)"></i>JEDI VIPs - PRECIOS Y BENEFICIOS</h3>
+         <div class="price-grid">
+           <div class="price-card plate"><h4>PLATE TIER</h4><div class="price">$15.000 CR</div><ul><li>✓ Jedi Padawan / Generales menores</li><li>✓ Sable básico + curación ligera</li><li>✓ Acceso a misiones nivel 1-2</li><li>✓ Luminara, Barriss, Adi Gallia</li></ul><button class="btn-vip" data-sound onclick="openChar('jedi_plate_1')">VER DOSSIER PLATE</button></div>
+           <div class="price-card gold"><h4>GOLD TIER</h4><div class="price">$35.000 CR</div><ul><li>✓ Jedi Generales de Batallón</li><li>✓ Battle Meditation parcial</li><li>✓ Liderazgo legión + tropas élite</li><li>✓ Anakin 501st, Aayla 327th, Ki-Adi 88th</li></ul><button class="btn-vip" data-sound onclick="openChar('anakin')">VER DOSSIER GOLD</button></div>
+           <div class="price-card plat"><h4>PLATINUM TIER</h4><div class="price">$65.000 CR</div><ul><li>✓ Alto Consejo Jedi - Leyendas</li><li>✓ Habilidades legendarias</li><li>✓ Orden Alto Consejo + misiones finales</li><li>✓ Obi-Wan, Yoda, Mace Windu</li></ul><button class="btn-vip" data-sound onclick="openChar('kenobi')">VER DOSSIER PLATINUM</button></div>
+         </div>
+       </div>
+       <div class="section"><h3><i style="background:var(--gold)"></i>PERSONAJES - CLICK PARA INFO EXPANDIDA ABAJO</h3>
+         <div class="roster">
+           <div class="circle" data-sound onclick="openChar('jedi_plate_1')"><div class="imgc"><span class="fallback">LU</span></div><b>LUMINARA</b></div>
+           <div class="circle" data-sound onclick="openChar('anakin')"><div class="imgc"><img src="https://i.imgur.com/Anakin.png" onerror="this.style.display='none'"><span class="fallback">AN</span></div><b>ANAKIN GOLD</b></div>
+           <div class="circle" data-sound onclick="openChar('kenobi')"><div class="imgc"><img src="https://i.imgur.com/ObiWan.png" onerror="this.style.display='none'"><span class="fallback">OW</span></div><b>KENOBI PLAT</b></div>
+           <div class="circle" data-sound onclick="openChar('yoda')"><div class="imgc"><span class="fallback">YO</span></div><b>YODA PLAT</b></div>
+         </div>
+         <div id="charInfo"><h4 id="ciName"></h4><div class="role" id="ciRole"></div><div class="desc" id="ciDesc"></div></div>
+       </div>
+     </div>
+   </div>`;
+   return;
+ }
+ if(id==='cis'){
+   main.innerHTML = `
+   <div class="frame">
+     <div class="frame-head" style="border-left:4px solid var(--red)"><h2>${l.title}</h2><div class="meta"><span class="tag cmd">${l.cmd}</span><span class="tag">${l.jedi}</span></div></div>
+     <div class="frame-body">
+       <div class="section"><h3><i style="background:var(--red)"></i>CIS - SISTEMA DE CONTRATACIÓN</h3><p>${l.desc}</p></div>
+       <div class="section">
+         <h3><i style="background:var(--orange)"></i>CAZARRECOMPENSAS - NARANJA NEON - PRECIO</h3>
+         <div class="price-grid">
+           <div class="price-card bounty"><h4>CAD BANE</h4><div class="price">$25.000 CR</div><ul><li>✓ Duros - Pistolas duales</li><li>✓ Caza Jedi</li><li>✓ Cohetes botas</li></ul><button class="btn-vip" data-sound onclick="openChar('cad')">DOSSIER</button></div>
+           <div class="price-card bounty"><h4>JANGO / BOBA FETT</h4><div class="price">$30.000 / $28.000 CR</div><ul><li>✓ Prime Template / Unaltered</li><li>✓ Jetpack + arsenal</li></ul><button class="btn-vip" data-sound onclick="openChar('jango')">DOSSIER</button></div>
+         </div>
+       </div>
+       <div class="section">
+         <h3><i style="background:var(--cyan88)"></i>DROIDES - CIAN NEON - PRECIO</h3>
+         <div class="price-grid">
+           <div class="price-card droid"><h4>GENERAL GRIEVOUS</h4><div class="price">$45.000 CR</div><ul><li>✓ 4 sables, caza Jedi</li><li>✓ Comandante Supremo Droide</li></ul><button class="btn-vip" data-sound onclick="openChar('grievous')">DOSSIER</button></div>
+           <div class="price-card droid"><h4>TACTICAL / COMMANDO DROID</h4><div class="price">$18.000 CR</div><ul><li>✓ Estratega / BX Commando</li></ul><button class="btn-vip" data-sound onclick="openChar('tactical')">DOSSIER</button></div>
+         </div>
+       </div>
+       <div class="section">
+         <h3><i style="background:var(--red)"></i>PERSONAJES ICÓNICOS CIS - ROJO NEON - PRECIO</h3>
+         <div class="price-grid">
+           <div class="price-card icon"><h4>COUNT DOOKU / MAUL / VENTRESS</h4><div class="price">$50.000 - $40.000 CR</div><ul><li>✓ Sith Lords / Assassin</li><li>✓ Rayo Fuerza / Doble sable</li></ul><button class="btn-vip" data-sound onclick="openChar('dooku')">DOSSIER</button></div>
+         </div>
+       </div>
+       <div class="section"><h3><i></i>PERSONAJES - CLICK PARA INFO EXPANDIDA</h3>
+         <div class="roster">
+           <div class="circle" data-sound onclick="openChar('cad')"><div class="imgc"><span class="fallback">CB</span></div><b>CAD BANE</b></div>
+           <div class="circle" data-sound onclick="openChar('grievous')"><div class="imgc"><span class="fallback">GR</span></div><b>GRIEVOUS</b></div>
+           <div class="circle" data-sound onclick="openChar('dooku')"><div class="imgc"><span class="fallback">DO</span></div><b>DOOKU</b></div>
+           <div class="circle" data-sound onclick="openChar('maul')"><div class="imgc"><span class="fallback">DM</span></div><b>MAUL</b></div>
+         </div>
+         <div id="charInfo"><h4 id="ciName"></h4><div class="role" id="ciRole"></div><div class="desc" id="ciDesc"></div></div>
+       </div>
+     </div>
+   </div>`;
+   return;
+ }
+ main.innerHTML = `
+ <div class="frame">
+   <div class="frame-head" style="border-left:4px solid var(--${color})"><h2>${l.title}</h2><div class="meta"><span class="tag cmd">${l.cmd}</span><span class="tag">${l.jedi}</span></div></div>
+   <div class="frame-body">
+     <div class="section"><h3><i style="background:var(--${color})"></i>TROPAS EN GENERAL - A QUE SE DEDICAN</h3><p>${l.tropas}</p><p style="margin-top:10px;opacity:0.9">${l.desc}</p></div>
+     <div class="grid-3">
+       <div class="subcard"><b>HEAVY: PILOTOS Y APOYO DE FUEGO PESADO</b><span>${l.heavy}</span></div>
+       <div class="subcard"><b>ARC / ARF</b><span><b>ARC:</b> ${l.arc}<br><br><b>ARF:</b> ${l.arf}</span></div>
+       <div class="subcard"><b>MÉDICO</b><span>${l.med}</span></div>
+     </div>
+     <div class="section">
+       <h3><i style="background:var(--${color})"></i>PERSONAJES ICÓNICOS DE LA LEGIÓN - CÍRCULO CON IMAGEN - CLICK PARA EXPANDIR INFO ABAJO</h3>
+       <div class="roster" id="roster">
+         ${l.chars.map(c=>`<div class="circle" data-sound data-char="${c.id}" onclick="openChar('${c.id}')"><div class="imgc"><img src="${c.img}" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="${c.name}"><span class="fallback" style="display:none">${c.letter}</span></div><b>${c.name}</b></div>`).join('')}
+       </div>
+       <div id="charInfo"><h4 id="ciName"></h4><div class="role" id="ciRole"></div><div class="desc" id="ciDesc"></div></div>
+       <p style="font-size:8px;opacity:0.3;margin-top:12px;letter-spacing:2px">// PARA MODIFICAR IMÁGENES: cambia src en legions = { chars: [ { img: "URL" } ] } // PARA MODIFICAR INFO: edita desc: 'tu texto'</p>
+     </div>
+   </div>
+ </div>
+ `;
+}
+const allChars = {};
+Object.values(legions).forEach(l=>{ if(l.chars) l.chars.forEach(c=>{ allChars[c.id]=c; }) });
+Object.assign(allChars, {
+yoda: {name:'YODA', role:'Grand Master - Platinum - $65.000 CR', desc:'Gran Maestro Jedi. 900 años. Ataru, sabiduría.\n\n>>> EDITA PRECIO PLATINUM AQUI <<<\n\nCWRP Lore: [Rellena]', letter:'Y', img:''},
+mace: {name:'MACE WINDU', role:'Council Master - Platinum - $65.000 CR', desc:'Maestro Vaapad, Shatterpoint.\n\nCWRP Lore: [Rellena]', letter:'M', img:''},
+plo: {name:'PLO KOON', role:'Jedi Council - Gold - $35.000 CR', desc:'Kel Dor, 104th Wolfpack.\n\nCWRP Lore: [Rellena]', letter:'P', img:''},
+jedi_plate_1: {name:'LUMINARA UNDULI', role:'Jedi General - Plate - $15.000 CR', desc:'Mirialan, 41st.\n\nCWRP Lore: [Rellena]', letter:'LU', img:''},
+cad: {name:'CAD BANE', role:'Bounty Hunter - CIS Bounty - $25.000 CR', desc:'Duros, sombrero, pistolas LL-30, caza Jedi. Odia a los Jedi.\n\nCWRP Lore: [Rellena]\n\n>>> EDITA PRECIO BOUNTY AQUI <<<', letter:'CB', img:''},
+jango: {name:'JANGO FETT', role:'Bounty Hunter - Prime - $30.000 CR', desc:'Template de los clones, Mandalore. Jetpack, arsenal.\n\nCWRP Lore: [Rellena]', letter:'JF', img:''},
+boba: {name:'BOBA FETT', role:'Bounty Hunter - $28.000 CR', desc:'Unaltered clone de Jango.\n\nCWRP Lore: [Rellena]', letter:'BF', img:''},
+grievous: {name:'GENERAL GRIEVOUS', role:'CIS Supreme Commander - Droid - $45.000 CR', desc:'Kaleesh cyborg, 4 sables, caza Jedi, tos.\n\nCWRP Lore: [Rellena]\n\n>>> EDITA PRECIO DROID AQUI <<<', letter:'GR', img:''},
+tactical: {name:'TACTICAL DROID', role:'CIS Strategist - $18.000 CR', desc:'T-Series, estratega.\n\nCWRP Lore: [Rellena]', letter:'TD', img:''},
+dooku: {name:'COUNT DOOKU', role:'Sith Lord - CIS Iconic - $50.000 CR', desc:'Darth Tyranus, líder CIS, Makashi, Rayo.\n\nCWRP Lore: [Rellena]\n\n>>> EDITA PRECIO ICONIC CIS AQUI <<<', letter:'DO', img:''},
+maul: {name:'DARTH MAUL', role:'Sith - Shadow Collective - $45.000 CR', desc:'Zabrak, doble sable, Mandalore.\n\nCWRP Lore: [Rellena]', letter:'DM', img:''},
+ventress: {name:'ASAAJ VENTRESS', role:'CIS Assassin - $40.000 CR', desc:'Dathomirian, ex-aprendiz Dooku.\n\nCWRP Lore: [Rellena]', letter:'AV', img:''}
+});
+function openChar(id){
+ const c = allChars[id];
+ if(!c) return;
+ const box = document.getElementById('charInfo');
+ const nameEl = document.getElementById('ciName');
+ const roleEl = document.getElementById('ciRole');
+ const descEl = document.getElementById('ciDesc');
+ if(box){
+   nameEl.textContent = c.name;
+   roleEl.textContent = c.role;
+   descEl.textContent = c.desc;
+   box.classList.add('show');
+   box.scrollIntoView({behavior:'smooth', block:'nearest'});
+   document.querySelectorAll('.circle').forEach(el=>el.classList.remove('active'));
+   const target = document.querySelector(`[data-char="${id}"]`);
+   if(target) target.classList.add('active');
+   playSound('gold');
+ }
+}
+window.addEventListener('load', ()=>{ selectLegion('501'); });
 </script>
 </body>
 </html>
-                                                                                                                                                                                                         </div>
